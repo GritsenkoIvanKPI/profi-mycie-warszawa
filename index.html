@@ -320,10 +320,14 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
   #header { padding-top: 14px !important; padding-bottom: 14px !important; }
   #header.scrolled { padding-top: 10px !important; padding-bottom: 10px !important; }
 
-  /* ── Hero: switch to top-aligned on mobile, content clears the fixed header ── */
-  .hero-section { align-items: flex-start !important; }
+  /* ── Hero: auto-height on mobile — removes dead space below stats ── */
+  .hero-section {
+    align-items: flex-start !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
   .hero-content {
-    padding-top: 76px !important;   /* clears ~64px header + breathing room */
+    padding-top: 76px !important;   /* clears ~64px header + breathing gap */
     padding-bottom: 2.5rem !important;
   }
   /* Trim internal hero spacing so everything fits on one screen */
