@@ -50,6 +50,9 @@ body::after {
 /* text-wrap: pretty prevents single-word last lines in paragraphs */
 .body-text { font-size: 1rem; line-height: 1.75; color: #a0a8b4; text-wrap: pretty; }
 p { text-wrap: pretty; }
+/* Keyword highlights inside body text */
+.kw   { color: #e8edf2; font-weight: 600; }
+.kw-r { color: #E4000F; font-weight: 600; }
 
 /* ── NAV ── */
 .nav-link { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #a8b0bc; position: relative; transition: color 0.2s cubic-bezier(0.16,1,0.3,1); }
@@ -793,8 +796,8 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
       <div class="fade-up d2 order-1 lg:order-2">
         <div class="label mb-5">O nas</div>
         <h2 class="title mb-6">Firma PROFI – solidność i precyzja</h2>
-        <p class="body-text mb-5">PROFI to firma specjalizująca się w profesjonalnym czyszczeniu i renowacji nieruchomości na terenie Warszawy. Od ponad 8 lat pomagamy właścicielom prywatnych domów przywrócić im pierwotny wygląd i zabezpieczyć przed dalszymi uszkodzeniami.</p>
-        <p class="body-text mb-8">Pracujemy nowoczesnym sprzętem wysokociśnieniowym, używamy tylko sprawdzonych środków chemicznych bezpiecznych dla otoczenia i roślinności. Każde zlecenie traktujemy indywidualnie, a efekty naszej pracy zawsze mówią same za siebie.</p>
+        <p class="body-text mb-5">PROFI to firma specjalizująca się w <span class="kw">profesjonalnym czyszczeniu i renowacji nieruchomości</span> na terenie <span class="kw-r">Warszawy</span>. Od ponad <span class="kw-r">8 lat</span> pomagamy właścicielom prywatnych domów przywrócić im <span class="kw">pierwotny wygląd</span> i zabezpieczyć przed dalszymi uszkodzeniami.</p>
+        <p class="body-text mb-8">Pracujemy <span class="kw">nowoczesnym sprzętem wysokociśnieniowym</span>, używamy tylko sprawdzonych środków chemicznych <span class="kw">bezpiecznych dla otoczenia i roślinności</span>. Każde zlecenie traktujemy <span class="kw-r">indywidualnie</span>, a <span class="kw">efekty naszej pracy</span> zawsze mówią same za siebie.</p>
 
         <!-- Values -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
