@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROFI – Mycie i Renowacja Nieruchomości Warszawa</title>
+<meta name="description" content="Profesjonalne mycie ciśnieniowe, malowanie impregnatem i renowacja elewacji, dachów oraz kostki brukowej. Warszawa i okolice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        red: '#E4000F',
+        navy: '#003665',
+        dark: '#09090b',
+        'd2': '#111114',
+        'd3': '#18181c',
+      },
+      fontFamily: { sans: ['"Exo 2"', 'sans-serif'] },
+    }
+  }
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; font-family: 'Exo 2', sans-serif !important; }
+html { scroll-behavior: smooth; }
+body { background: #09090b; color: #fff; overflow-x: hidden; }
+a, div, button { outline: 0; }
+@media screen and (max-width: 782px) { body * { -webkit-tap-highlight-color: transparent !important; } }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #09090b; }
+::-webkit-scrollbar-thumb { background: #E4000F; border-radius: 2px; }
+
+/* Grain overlay */
+body::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 9000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* ── TYPOGRAPHY ── */
+.label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #E4000F; }
+.title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.08; color: #fff; }
+.title-sm { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: #fff; }
+/* text-wrap: pretty prevents single-word last lines in paragraphs */
+.body-text { font-size: 1rem; line-height: 1.75; color: #a0a8b4; text-wrap: pretty; }
+p { text-wrap: pretty; }
+
+/* ── NAV ── */
+.nav-link { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #a8b0bc; position: relative; transition: color 0.2s cubic-bezier(0.16,1,0.3,1); }
+.nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #E4000F; transition: width 0.3s cubic-bezier(0.16,1,0.3,1); }
+.nav-link:hover { color: #fff; }
+.nav-link:hover::after { width: 100%; }
+
+header { transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease; }
+header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(255,255,255,0.05), 0 8px 32px rgba(0,0,0,0.6); padding-top: 12px !important; padding-bottom: 12px !important; }
+
+/* ── BUTTONS ── */
+.btn-red {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #E4000F; color: #fff;
+  font-weight: 700; font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 14px 28px; border: none; cursor: pointer;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  box-shadow: 0 4px 24px rgba(228,0,15,0.4), 0 2px 8px rgba(0,0,0,0.4);
+  transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s cubic-bezier(0.16,1,0.3,1), background 0.2s ease;
+}
+.btn-red:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(228,0,15,0.55), 0 4px 12px rgba(0,0,0,0.5); background: #f50010; }
+.btn-red:active { transform: translateY(0); }
+.btn-red:focus-visible { outline: 2px solid #E4000F; outline-offset: 3px; }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: #fff;
+  font-weight: 600; font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 13px 28px; border: 1.5px solid rgba(255,255,255,0.18); cursor: pointer;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.25s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-ghost:hover { border-color: #E4000F; background: rgba(228,0,15,0.08); transform: translateY(-2px); }
+.btn-ghost:focus-visible { outline: 2px solid #E4000F; outline-offset: 3px; }
+
+/* ── HERO ── */
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+
+/* ── SERVICE CARDS ── */
+.scard {
+  background: #111114;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
+  overflow: hidden;
+}
+.scard:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 4px 20px rgba(228,0,15,0.12), inset 0 1px 0 rgba(255,255,255,0.06); }
+.scard img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); display: block; }
+.scard:hover img { transform: scale(1.06); }
+.scard-num { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; color: rgba(228,0,15,0.6); }
+.scard-icon { width: 36px; height: 3px; background: #E4000F; margin-bottom: 14px; }
+
+/* ── PORTFOLIO ── */
+.pgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+.pgrid-wide { grid-column: span 2; }
+.pgrid-tall { grid-row: span 2; }
+.pitem { overflow: hidden; position: relative; }
+.pitem img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); display: block; }
+.pitem:hover img { transform: scale(1.08); }
+.pitem-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%); opacity: 0; transition: opacity 0.3s ease; display: flex; align-items: flex-end; padding: 16px; }
+.pitem:hover .pitem-overlay { opacity: 1; }
+
+/* ── STATS ── */
+.stat-box { background: linear-gradient(135deg, #111114 0%, #18181c 100%); border: 1px solid rgba(255,255,255,0.055); box-shadow: 0 4px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04); }
+
+/* ── TESTIMONIALS ── */
+.tcard { background: #111114; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 24px rgba(0,0,0,0.3); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease; }
+.tcard:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.4); }
+
+/* ── FAQ ── */
+.faq2-item {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  transition: background 0.2s ease;
+}
+.faq2-item:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+
+.faq2-btn {
+  width: 100%; display: flex; align-items: center; gap: 16px;
+  padding: 22px 0; background: none; border: none; cursor: pointer;
+  text-align: left; outline: none;
+}
+.faq2-num {
+  font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em;
+  color: rgba(228,0,15,0.5); flex-shrink: 0; width: 24px;
+  transition: color 0.2s ease;
+}
+.faq2-q {
+  flex: 1; font-size: 1rem; font-weight: 600; color: #c8cdd6; line-height: 1.4;
+  transition: color 0.2s ease;
+}
+.faq2-chevron {
+  flex-shrink: 0; width: 32px; height: 32px;
+  border: 1.5px solid rgba(255,255,255,0.1); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #7a8494;
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1),
+              border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.faq2-btn:hover .faq2-q { color: #fff; }
+.faq2-btn:hover .faq2-num { color: #E4000F; }
+.faq2-btn:hover .faq2-chevron { border-color: rgba(228,0,15,0.4); color: #E4000F; }
+
+/* CSS grid animation — far smoother than max-height */
+.faq2-panel {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows 0.38s cubic-bezier(0.16,1,0.3,1);
+}
+.faq2-panel-inner { overflow: hidden; }
+.faq2-answer {
+  padding-bottom: 22px; padding-left: 40px;
+  font-size: 0.9375rem; line-height: 1.8; color: #9299a8;
+}
+
+/* Open state */
+.faq2-item.faq2-open .faq2-panel { grid-template-rows: 1fr; }
+.faq2-item.faq2-open .faq2-chevron {
+  transform: rotate(180deg);
+  border-color: rgba(228,0,15,0.5); color: #E4000F;
+  background: rgba(228,0,15,0.06);
+}
+.faq2-item.faq2-open .faq2-q { color: #fff; }
+.faq2-item.faq2-open .faq2-num { color: #E4000F; }
+
+/* ── LIGHTBOX ── */
+#lb {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0,0,0,0.96);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+#lb.lb-open { opacity: 1; pointer-events: all; }
+
+#lb-img-wrap {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  max-width: 92vw; max-height: 88vh;
+  transform: scale(0.95);
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+#lb.lb-open #lb-img-wrap { transform: scale(1); }
+
+#lb-img {
+  display: block;
+  max-width: 92vw; max-height: 88vh;
+  width: auto; height: auto;
+  object-fit: contain;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.8);
+  user-select: none;
+}
+
+#lb-close {
+  position: fixed; top: 20px; right: 24px;
+  width: 44px; height: 44px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 10001;
+}
+#lb-close:hover { background: rgba(228,0,15,0.25); transform: scale(1.1); }
+
+.lb-arrow {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  width: 50px; height: 50px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; cursor: pointer; z-index: 10001;
+  transition: background 0.2s ease, transform 0.2s ease;
+  user-select: none;
+}
+.lb-arrow:hover { background: rgba(228,0,15,0.25); }
+#lb-prev { left: 20px; }
+#lb-prev:hover { transform: translateY(-50%) translateX(-2px); }
+#lb-next { right: 20px; }
+#lb-next:hover { transform: translateY(-50%) translateX(2px); }
+
+#lb-footer {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 28px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+  pointer-events: none;
+}
+#lb-caption {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(255,255,255,0.7);
+}
+#lb-counter {
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.4);
+}
+
+/* Cursor on portfolio items */
+.pitem { cursor: zoom-in; }
+
+/* ── INPUTS ── */
+.finput {
+  width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  color: #fff; padding: 14px 16px; font-size: 0.9375rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.finput::placeholder { color: #3d4350; }
+.finput:focus { border-color: #E4000F; background: rgba(228,0,15,0.04); outline: none; }
+.finput option { background: #18181c; color: #fff; }
+
+/* ── PROCESS STEP ── */
+.step-no { font-size: 6rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: rgba(228,0,15,0.06); position: absolute; top: -16px; left: -8px; pointer-events: none; user-select: none; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+.fade-up { opacity: 0; }
+.fade-up.visible { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) forwards; }
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.15s; }
+.d3 { animation-delay: 0.25s; }
+.d4 { animation-delay: 0.35s; }
+.d5 { animation-delay: 0.45s; }
+.d6 { animation-delay: 0.55s; }
+
+/* ── RED SLASH DECORATION ── */
+.slash-deco { display: inline-block; position: relative; }
+.slash-deco::after { content: ''; position: absolute; bottom: 1px; left: 0; right: 0; height: 3px; background: #E4000F; }
+
+/* Divider line */
+.divider { height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent); }
+
+/* Mobile menu */
+#mobile-menu { display: none; }
+#mobile-menu.open { display: flex; }
+
+/* ══════════════════════════════════════
+   HEADER — breakpoint-specific
+══════════════════════════════════════ */
+
+/* 375–479px: hide CTA, logo-only + hamburger */
+@media (max-width: 479px) {
+  .header-cta { display: none !important; }
+}
+
+/* 480–639px: compact CTA */
+@media (min-width: 480px) and (max-width: 639px) {
+  .header-cta {
+    padding: 9px 12px !important;
+    font-size: 0.6875rem !important;
+    letter-spacing: 0.04em !important;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%) !important;
+  }
+}
+
+/* 640–767px: medium CTA */
+@media (min-width: 640px) and (max-width: 767px) {
+  .header-cta { padding: 11px 18px !important; font-size: 0.8125rem !important; }
+}
+
+/* 1024–1279px: nav + CTA fills header — hide phone, shrink CTA */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .header-cta { padding: 11px 16px !important; font-size: 0.75rem !important; }
+}
+
+/* ══════════════════════════════════════
+   MOBILE  (≤ 767px)
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+
+  /* Header: tighter vertical padding */
+  #header { padding-top: 14px !important; padding-bottom: 14px !important; }
+  #header.scrolled { padding-top: 10px !important; padding-bottom: 10px !important; }
+
+  /* ── Hero: switch to top-aligned on mobile, content clears the fixed header ── */
+  .hero-section { align-items: flex-start !important; }
+  .hero-content {
+    padding-top: 76px !important;   /* clears ~64px header + breathing room */
+    padding-bottom: 2.5rem !important;
+  }
+  /* Trim internal hero spacing so everything fits on one screen */
+  .hero-label  { margin-bottom: 0.5rem !important; }
+  .hero-h1     { margin-bottom: 0.875rem !important; }
+  .hero-body   { font-size: 0.875rem !important; line-height: 1.65 !important; margin-bottom: 1.5rem !important; }
+  .hero-btns   { margin-bottom: 1.25rem !important; gap: 0.625rem !important; }
+  .hero-ghost  { display: none !important; }          /* secondary btn hidden — saves ~50px */
+  .hero-stats  { padding-top: 1rem !important; }
+  /* Make the primary CTA button slightly more compact on small screens */
+  .hero-btns .btn-red { padding: 12px 22px !important; font-size: 0.8125rem !important; }
+
+  /* Hero title: clamp tighter for narrow screens + balance eliminates orphans */
+  .title     { font-size: clamp(1.875rem, 9vw, 2.75rem) !important; text-wrap: balance; }
+  .title-sm  { font-size: clamp(1.5rem, 7vw, 2rem) !important;      text-wrap: balance; }
+  h1, h2, h3 { text-wrap: balance; }
+
+  /* Section vertical rhythm: trim on mobile */
+  .section-py { padding-top: 4.5rem !important; padding-bottom: 4.5rem !important; }
+
+  /* CTA video banner: was py-28 (7rem) — bring to 4rem */
+  .cta-video-section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+
+  /* Portfolio grid: 2 columns at 200px each */
+  #portfolio-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  #portfolio-grid .pitem { height: 200px !important; }
+
+  /* About photo grid: shrink height, keep 2 columns */
+  .about-photo-grid { height: 280px !important; }
+  /* Floating badge: smaller on mobile */
+  .about-photo-grid ~ .absolute { bottom: 0 !important; right: 0 !important; padding: 10px 14px !important; }
+  .about-photo-grid ~ .absolute .text-3xl { font-size: 1.5rem !important; }
+
+  /* Service card image: slightly less tall */
+  .scard img { height: 200px !important; }
+
+  /* Lightbox: use almost full screen, move arrows inward */
+  #lb-img { max-width: 98vw !important; max-height: 72vh !important; }
+  #lb-img-wrap { max-width: 98vw !important; max-height: 72vh !important; }
+  #lb-prev { left: 6px; }
+  #lb-next { right: 6px; }
+  .lb-arrow { width: 38px !important; height: 38px !important; }
+  #lb-close { top: 14px; right: 14px; }
+  #lb-footer { padding: 12px 16px; }
+
+  /* Process step ghost numbers: smaller on mobile */
+  .step-no { font-size: 4rem !important; }
+
+  /* Testimonial cards: sensible padding on mobile */
+  .tcard { padding: 1.25rem !important; }
+
+  /* FAQ: stack layout already grid-cols-1 on mobile ✓ */
+  /* FAQ answer indent matches number width */
+  .faq2-answer { padding-left: 32px !important; }
+
+  /* Contact form: full-width button */
+  #contactForm button[type="submit"] { font-size: 0.8125rem !important; padding: 14px 16px !important; }
+
+  /* Map iframe: smaller on mobile */
+  .map-iframe-wrap { height: 280px !important; }
+
+  /* Location section: hide right map column gap overflow */
+
+  /* Stats in hero: tighter numbers */
+  .hero-stat-num { font-size: 1.75rem !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     HEADER
+════════════════════════════════════════ -->
+<header id="header" class="fixed top-0 left-0 right-0 z-50 py-5">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3">
+      <div class="relative">
+        <span class="text-[28px] font-black tracking-[-0.04em] leading-none">
+          PRO<span class="text-[#E4000F]">FI</span>
+        </span>
+        <span class="absolute -bottom-0.5 -right-2 w-2 h-2 bg-[#E4000F] rounded-full"></span>
+      </div>
+      <div class="hidden md:block border-l border-white/10 pl-3">
+        <div class="text-[9px] font-700 tracking-[0.14em] text-[#9299a8] uppercase leading-tight">Mycie & Renowacja</div>
+        <div class="text-[9px] font-700 tracking-[0.14em] text-[#9299a8] uppercase leading-tight">Nieruchomości</div>
+      </div>
+    </a>
+
+    <!-- Nav desktop -->
+    <nav class="hidden lg:flex items-center gap-5 xl:gap-7">
+      <a href="#uslugi" class="nav-link">Usługi</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#o-nas" class="nav-link">O nas</a>
+      <a href="#opinie" class="nav-link">Opinie</a>
+      <a href="#proces" class="nav-link">Proces</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </nav>
+
+    <!-- Right actions -->
+    <div class="flex items-center gap-4">
+      <a href="tel:+48783779725" class="header-phone hidden xl:flex items-center gap-2 text-sm font-600 text-[#a8b0bc] hover:text-white transition-colors duration-200">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        +48 783 779 725
+      </a>
+      <a href="#kontakt" class="header-cta btn-red">Bezpłatna wycena</a>
+      <!-- Burger -->
+      <button id="burger" class="lg:hidden flex flex-col gap-[5px] p-1" aria-label="Menu">
+        <span id="b1" class="block w-6 h-0.5 bg-white transition-transform duration-250 origin-center"></span>
+        <span id="b2" class="block w-6 h-0.5 bg-white transition-opacity duration-200"></span>
+        <span id="b3" class="block w-6 h-0.5 bg-white transition-transform duration-250 origin-center"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-[#09090b] flex-col items-center justify-center gap-8">
+  <a href="#uslugi" class="mobile-link text-2xl font-800 tracking-tight text-white hover:text-[#E4000F] transition-colors">Usługi</a>
+  <a href="#portfolio" class="mobile-link text-2xl font-800 tracking-tight text-white hover:text-[#E4000F] transition-colors">Portfolio</a>
+  <a href="#o-nas" class="mobile-link text-2xl font-800 tracking-tight text-white hover:text-[#E4000F] transition-colors">O nas</a>
+  <a href="#opinie" class="mobile-link text-2xl font-800 tracking-tight text-white hover:text-[#E4000F] transition-colors">Opinie</a>
+  <a href="#proces" class="mobile-link text-2xl font-800 tracking-tight text-white hover:text-[#E4000F] transition-colors">Proces</a>
+  <a href="#faq" class="mobile-link text-2xl font-800 tracking-tight text-white hover:text-[#E4000F] transition-colors">FAQ</a>
+  <a href="#kontakt" class="btn-red mt-4 text-base px-10 py-4">Bezpłatna wycena</a>
+  <a href="tel:+48783779725" class="flex items-center gap-2 text-[#a8b0bc] font-600">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+    +48 783 779 725
+  </a>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section class="hero-section relative flex items-end min-h-screen" style="min-height:100dvh">
+  <video class="hero-video" autoplay muted loop playsinline poster="ІВАН AI/IMG_3550.JPG">
+    <source src="ІВАН AI/IMG_1647.MOV" type="video/mp4">
+  </video>
+
+  <!-- Multi-layer overlay -->
+  <div class="absolute inset-0 z-10" style="background: linear-gradient(to top, #09090b 0%, rgba(9,9,11,0.75) 40%, rgba(9,9,11,0.3) 70%, rgba(9,9,11,0.15) 100%);"></div>
+  <div class="absolute inset-0 z-10" style="background: radial-gradient(ellipse at 15% 60%, rgba(0,54,101,0.28) 0%, transparent 55%), radial-gradient(ellipse at 85% 20%, rgba(228,0,15,0.08) 0%, transparent 45%);"></div>
+
+  <div class="hero-content relative z-20 w-full max-w-7xl mx-auto px-6 pb-20 md:pb-28">
+    <div class="max-w-2xl">
+      <div class="hero-label label mb-5 fade-up d1">Warszawa i okolice</div>
+      <h1 class="hero-h1 title mb-6 fade-up d2">
+        Przywracamy blask<br>
+        <span class="text-[#E4000F]">Twojej nieruchomości</span>
+      </h1>
+      <p class="hero-body body-text text-[#a0a8b4] text-[1.0625rem] mb-10 fade-up d3">
+        Profesjonalne mycie ciśnieniowe, malowanie impregnatem i kompleksowa renowacja elewacji, dachów oraz kostki brukowej. Szybko, solidnie i bez śladu.
+      </p>
+      <div class="hero-btns flex flex-wrap gap-4 mb-16 fade-up d4">
+        <a href="#kontakt" class="btn-red text-base px-8 py-[15px]">
+          Bezpłatna wycena
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#portfolio" class="hero-ghost btn-ghost text-base px-8 py-[15px]">Nasze realizacje</a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="hero-stats border-t border-white/8 pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 fade-up d5">
+        <div>
+          <div class="hero-stat-num text-[2.25rem] font-900 tracking-[-0.04em] text-white leading-none">500+</div>
+          <div class="text-[0.6875rem] font-700 tracking-[0.12em] uppercase text-[#9299a8] mt-2">Realizacji</div>
+        </div>
+        <div>
+          <div class="hero-stat-num text-[2.25rem] font-900 tracking-[-0.04em] text-white leading-none">8</div>
+          <div class="text-[0.6875rem] font-700 tracking-[0.12em] uppercase text-[#9299a8] mt-2">Lat doświadczenia</div>
+        </div>
+        <div>
+          <div class="hero-stat-num text-[2.25rem] font-900 tracking-[-0.04em] text-white leading-none">100%</div>
+          <div class="text-[0.6875rem] font-700 tracking-[0.12em] uppercase text-[#9299a8] mt-2">Zadowolonych klientów</div>
+        </div>
+        <div>
+          <div class="hero-stat-num text-[2.25rem] font-900 tracking-[-0.04em] text-white leading-none">24h</div>
+          <div class="text-[0.6875rem] font-700 tracking-[0.12em] uppercase text-[#9299a8] mt-2">Czas reakcji</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 right-8 z-20 hidden md:flex flex-col items-center gap-2">
+    <div class="text-[0.625rem] font-700 tracking-[0.2em] uppercase text-[#4e5766] rotate-90 origin-center mb-6">Scroll</div>
+    <div class="w-px h-16 overflow-hidden relative">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#E4000F] to-transparent animate-bounce"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SERVICES
+════════════════════════════════════════ -->
+<section id="uslugi" class="py-14 md:py-32 bg-[#09090b]">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="mb-16 fade-up">
+      <div class="label mb-4">Co robimy</div>
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+        <h2 class="title flex-1 min-w-0">Kompleksowe usługi dla Twojego domu</h2>
+        <p class="body-text max-w-sm md:pt-3">Specjalizujemy się w przywracaniu nieruchomościom pierwotnego wyglądu – od kostki przez elewację po dach.</p>
+      </div>
+    </div>
+
+    <!-- 3-col grid of service cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- Card 1 -->
+      <div class="scard fade-up d1">
+        <div class="overflow-hidden relative">
+          <img src="ІВАН AI/IMG_3620.JPG" alt="Mycie kostki brukowej" loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply pointer-events-none"></div>
+        </div>
+        <div class="p-6">
+          <div class="scard-num mb-3">01</div>
+          <div class="scard-icon"></div>
+          <h3 class="text-lg font-800 tracking-tight text-white mb-3">Mycie kostki brukowej</h3>
+          <p class="body-text text-sm">Usuwamy mchy, glony, olej i zabrudzenia z kostki brukowej metodą ciśnieniową. Efekt jak nowa nawierzchnia bez śladów lat użytkowania.</p>
+          <a href="#kontakt" class="inline-flex items-center gap-2 mt-5 text-[0.8125rem] font-700 tracking-[0.06em] uppercase text-[#E4000F] hover:gap-4 transition-all duration-200">
+            Wycena
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="scard fade-up d2">
+        <div class="overflow-hidden relative">
+          <img src="ІВАН AI/IMG_3630.JPG" alt="Malowanie kostki impregnatem" loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply pointer-events-none"></div>
+        </div>
+        <div class="p-6">
+          <div class="scard-num mb-3">02</div>
+          <div class="scard-icon"></div>
+          <h3 class="text-lg font-800 tracking-tight text-white mb-3">Malowanie kostki impregnatem</h3>
+          <p class="body-text text-sm">Zabezpieczamy kostkę specjalistycznym impregnatem odświeżającym kolor. Ochrona przed wilgocią, mrozem i ponownym zabrudzeniem.</p>
+          <a href="#kontakt" class="inline-flex items-center gap-2 mt-5 text-[0.8125rem] font-700 tracking-[0.06em] uppercase text-[#E4000F] hover:gap-4 transition-all duration-200">
+            Wycena
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="scard fade-up d3">
+        <div class="overflow-hidden relative">
+          <img src="ІВАН AI/IMG_3690.JPG" alt="Mycie dachów i ogrodzeń" loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply pointer-events-none"></div>
+        </div>
+        <div class="p-6">
+          <div class="scard-num mb-3">03</div>
+          <div class="scard-icon"></div>
+          <h3 class="text-lg font-800 tracking-tight text-white mb-3">Mycie dachów i ogrodzeń</h3>
+          <p class="body-text text-sm">Usuwamy mchy, porosty i glony z dachówek oraz ogrodzeń. Chronimy przed wilgocią i przedłużamy żywotność pokrycia dachowego.</p>
+          <a href="#kontakt" class="inline-flex items-center gap-2 mt-5 text-[0.8125rem] font-700 tracking-[0.06em] uppercase text-[#E4000F] hover:gap-4 transition-all duration-200">
+            Wycena
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="scard fade-up d1">
+        <div class="overflow-hidden relative">
+          <img src="ІВАН AI/IMG_3550.JPG" alt="Mycie i malowanie elewacji" loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply pointer-events-none"></div>
+        </div>
+        <div class="p-6">
+          <div class="scard-num mb-3">04</div>
+          <div class="scard-icon"></div>
+          <h3 class="text-lg font-800 tracking-tight text-white mb-3">Mycie i malowanie elewacji</h3>
+          <p class="body-text text-sm">Czyszczenie ciśnieniowe i malowanie tynków. Usuwamy zazielenienie, plamy i zanieczyszczenia. Dom odzyskuje świeży, zadbany wygląd.</p>
+          <a href="#kontakt" class="inline-flex items-center gap-2 mt-5 text-[0.8125rem] font-700 tracking-[0.06em] uppercase text-[#E4000F] hover:gap-4 transition-all duration-200">
+            Wycena
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="scard fade-up d2">
+        <div class="overflow-hidden relative">
+          <img src="ІВАН AI/IMG_3470.JPG" alt="Naprawy pęknięć i odnowa elewacji" loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply pointer-events-none"></div>
+        </div>
+        <div class="p-6">
+          <div class="scard-num mb-3">05</div>
+          <div class="scard-icon"></div>
+          <h3 class="text-lg font-800 tracking-tight text-white mb-3">Naprawy pęknięć i odnowa elewacji</h3>
+          <p class="body-text text-sm">Uzupełniamy pęknięcia i ubytki w tynku, wyrównujemy powierzchnię i nakładamy nową powłokę malarską. Kompleksowa renowacja elewacji.</p>
+          <a href="#kontakt" class="inline-flex items-center gap-2 mt-5 text-[0.8125rem] font-700 tracking-[0.06em] uppercase text-[#E4000F] hover:gap-4 transition-all duration-200">
+            Wycena
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="scard fade-up d3">
+        <div class="overflow-hidden relative">
+          <img src="ІВАН AI/IMG_3715.JPG" alt="Układanie płytek na tarasach i balkonach" loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply pointer-events-none"></div>
+        </div>
+        <div class="p-6">
+          <div class="scard-num mb-3">06</div>
+          <div class="scard-icon"></div>
+          <h3 class="text-lg font-800 tracking-tight text-white mb-3">Układanie płytek na tarasach</h3>
+          <p class="body-text text-sm">Profesjonalne układanie płytek gresowych i ceramicznych na tarasach, balkonach i schodach zewnętrznych. Trwałe i estetyczne wykończenie.</p>
+          <a href="#kontakt" class="inline-flex items-center gap-2 mt-5 text-[0.8125rem] font-700 tracking-[0.06em] uppercase text-[#E4000F] hover:gap-4 transition-all duration-200">
+            Wycena
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     PORTFOLIO
+════════════════════════════════════════ -->
+<section id="portfolio" class="py-14 md:py-32 bg-[#0d0d10]">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="mb-12 fade-up">
+      <div class="label mb-4">Nasze realizacje</div>
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+        <h2 class="title flex-1 min-w-0">Portfolio – efekty<br>mówią same za siebie</h2>
+        <p class="body-text max-w-xs md:pt-3">Każde zdjęcie to prawdziwy obiekt. Bez filtrów, bez retuszu.</p>
+      </div>
+    </div>
+
+    <!-- Uniform portfolio grid – every cell is the same size -->
+    <div id="portfolio-grid" class="fade-up" style="display:grid; grid-template-columns:repeat(3,1fr); gap:5px;">
+
+      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3700.JPG" data-lb-caption="Dach — po renowacji">
+        <img src="ІВАН AI/IMG_3700.JPG" alt="Dom po renowacji dachu" loading="lazy">
+        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Dach — po renowacji</span></div>
+      </div>
+      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3655.JPG" data-lb-caption="Dach — przed myciem">
+        <img src="ІВАН AI/IMG_3655.JPG" alt="Dach przed myciem" loading="lazy">
+        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Dach — przed myciem</span></div>
+      </div>
+      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3660.JPG" data-lb-caption="Dach — w trakcie pracy">
+        <img src="ІВАН AI/IMG_3660.JPG" alt="Mycie dachu w trakcie" loading="lazy">
+        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Dach — w trakcie</span></div>
+      </div>
+
+      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3434.JPG" data-lb-caption="Elewacja — przed myciem">
+        <img src="ІВАН AI/IMG_3434.JPG" alt="Elewacja przed myciem" loading="lazy">
+        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Elewacja — przed</span></div>
+      </div>
+      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3480.JPG" data-lb-caption="Renowacja elewacji">
+        <img src="ІВАН AI/IMG_3480.JPG" alt="Renowacja elewacji" loading="lazy">
+        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Renowacja elewacji</span></div>
+      </div>
+      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3550.JPG" data-lb-caption="Elewacja — po renowacji">
+        <img src="ІВАН AI/IMG_3550.JPG" alt="Elewacja po renowacji" loading="lazy">
+        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Elewacja — po</span></div>
+      </div>
+
+      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3600.JPG" data-lb-caption="Kostka brukowa — przed myciem">
+        <img src="ІВАН AI/IMG_3600.JPG" alt="Kostka brukowa przed myciem" loading="lazy">
+        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Kostka — przed</span></div>
+      </div>
+      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3620.JPG" data-lb-caption="Kostka brukowa — po myciu">
+        <img src="ІВАН AI/IMG_3620.JPG" alt="Kostka po myciu" loading="lazy">
+        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Kostka — po myciu</span></div>
+      </div>
+      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3630.JPG" data-lb-caption="Impregnacja kostki brukowej">
+        <img src="ІВАН AI/IMG_3630.JPG" alt="Kostka malowana impregnatem" loading="lazy">
+        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Impregnacja kostki</span></div>
+      </div>
+
+      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3715.JPG" data-lb-caption="Taras — układanie płytek">
+        <img src="ІВАН AI/IMG_3715.JPG" alt="Taras z płytkami" loading="lazy">
+        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Taras — płytki</span></div>
+      </div>
+      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3595.JPG" data-lb-caption="Chodnik — po czyszczeniu">
+        <img src="ІВАН AI/IMG_3595.JPG" alt="Chodnik po czyszczeniu" loading="lazy">
+        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Chodnik — po</span></div>
+      </div>
+      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3690.JPG" data-lb-caption="Mycie dachu — praca w toku">
+        <img src="ІВАН AI/IMG_3690.JPG" alt="Praca na dachu" loading="lazy">
+        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Mycie dachu</span></div>
+      </div>
+
+    </div>
+
+    <div class="mt-10 text-center fade-up">
+      <a href="#kontakt" class="btn-red px-10 py-4 text-sm">Zamów bezpłatną wycenę</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     CTA BANNER 1
+════════════════════════════════════════ -->
+<section class="relative py-12 md:py-20 overflow-hidden">
+  <div class="absolute inset-0" style="background: linear-gradient(135deg, #003665 0%, #001f3d 50%, #0a0010 100%);"></div>
+  <div class="absolute inset-0" style="background: radial-gradient(ellipse at 80% 50%, rgba(228,0,15,0.15) 0%, transparent 60%);"></div>
+  <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=60 height=60 xmlns=http://www.w3.org/2000/svg%3E%3Cpath d=M0 0h60v60H0z fill=none stroke=white stroke-width=.5/%3E%3C/svg%3E');"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+    <div class="fade-up">
+      <div class="label mb-3" style="color: rgba(255,255,255,0.5);">Działaj teraz</div>
+      <h2 class="title-sm text-white max-w-lg">Zadzwoń – bezpłatna wycena<br>w ciągu 24 godzin</h2>
+      <p class="body-text text-white/60 mt-3 max-w-md">Obsługujemy całą Warszawę i okolice. Przyjeżdżamy z własnym sprzętem. Szybki termin realizacji.</p>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center gap-4 flex-shrink-0 fade-up d3">
+      <a href="tel:+48783779725" class="btn-red px-8 py-4 text-base">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        +48 783 779 725
+      </a>
+      <a href="#kontakt" class="btn-ghost px-8 py-4 text-base border-white/25 text-white">Formularz kontaktowy</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     ABOUT US
+════════════════════════════════════════ -->
+<section id="o-nas" class="py-14 md:py-32 bg-[#09090b]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Images side -->
+      <div class="relative fade-up order-2 lg:order-1">
+        <div class="about-photo-grid grid grid-cols-2 gap-3" style="height:480px;">
+          <!-- Left: one tall photo -->
+          <div class="overflow-hidden">
+            <img src="ІВАН AI/IMG_3690.JPG" alt="Praca na dachu" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <!-- Right: two equal photos stacked -->
+          <div class="flex flex-col gap-3">
+            <div class="overflow-hidden flex-1">
+              <img src="ІВАН AI/IMG_3480.JPG" alt="Renowacja elewacji" class="w-full h-full object-cover" loading="lazy">
+            </div>
+            <div class="overflow-hidden flex-1">
+              <img src="ІВАН AI/IMG_3550.JPG" alt="Dom po renowacji" class="w-full h-full object-cover" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <!-- Floating badge -->
+        <div class="absolute -bottom-4 -right-4 bg-[#E4000F] px-5 py-4 shadow-2xl">
+          <div class="text-3xl font-900 text-white tracking-tight leading-none">8+</div>
+          <div class="text-[0.625rem] font-700 tracking-[0.12em] uppercase text-white/80 mt-1">Lat w branży</div>
+        </div>
+      </div>
+
+      <!-- Text side -->
+      <div class="fade-up d2 order-1 lg:order-2">
+        <div class="label mb-5">O nas</div>
+        <h2 class="title mb-6">Firma PROFI – solidność i precyzja</h2>
+        <p class="body-text mb-5">PROFI to firma specjalizująca się w profesjonalnym czyszczeniu i renowacji nieruchomości na terenie Warszawy. Od ponad 8 lat pomagamy właścicielom prywatnych domów przywrócić im pierwotny wygląd i zabezpieczyć przed dalszymi uszkodzeniami.</p>
+        <p class="body-text mb-8">Pracujemy nowoczesnym sprzętem wysokociśnieniowym, używamy tylko sprawdzonych środków chemicznych bezpiecznych dla otoczenia i roślinności. Każde zlecenie traktujemy indywidualnie, a efekty naszej pracy zawsze mówią same za siebie.</p>
+
+        <!-- Values -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+          <div class="stat-box p-5">
+            <div class="w-8 h-0.5 bg-[#E4000F] mb-3"></div>
+            <div class="text-sm font-800 text-white tracking-tight mb-1">Solidność</div>
+            <div class="text-xs text-[#9299a8] leading-relaxed">Dotrzymujemy terminów i obietnic</div>
+          </div>
+          <div class="stat-box p-5">
+            <div class="w-8 h-0.5 bg-[#E4000F] mb-3"></div>
+            <div class="text-sm font-800 text-white tracking-tight mb-1">Precyzja</div>
+            <div class="text-xs text-[#9299a8] leading-relaxed">Dbamy o każdy detal realizacji</div>
+          </div>
+          <div class="stat-box p-5">
+            <div class="w-8 h-0.5 bg-[#E4000F] mb-3"></div>
+            <div class="text-sm font-800 text-white tracking-tight mb-1">Gwarancja</div>
+            <div class="text-xs text-[#9299a8] leading-relaxed">Udzielamy gwarancji na prace</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════ -->
+<section id="opinie" class="py-14 md:py-32 bg-[#0d0d10]">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="mb-14 text-center fade-up">
+      <div class="label mb-4">Opinie klientów</div>
+      <h2 class="title">Co mówią nasi klienci</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <div class="tcard p-5 md:p-7 fade-up d1">
+        <div class="flex gap-1 mb-5">
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="text-[#a8b0bc] text-sm leading-relaxed mb-6">"Kostka brukowa wygląda jak nowa. Pan przyjechał punktualnie, pracował solidnie i dokładnie. Termin realizacji był błyskawiczny. Zdecydowanie polecam firmę PROFI wszystkim właścicielom domów!"</p>
+        <div class="flex items-center gap-3 border-t border-white/5 pt-5">
+          <div class="w-10 h-10 rounded-full bg-[#E4000F]/15 flex items-center justify-center text-[#E4000F] font-800 text-sm">AK</div>
+          <div>
+            <div class="text-sm font-700 text-white">Anna K.</div>
+            <div class="text-xs text-[#636c7a]">Ursynów, Warszawa</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard p-5 md:p-7 fade-up d2">
+        <div class="flex gap-1 mb-5">
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="text-[#a8b0bc] text-sm leading-relaxed mb-6">"Mycie elewacji przekroczyło moje oczekiwania. Dom wygląda jakby był właśnie wybudowany. Profesjonalne podejście, uczciwa cena i doskonały efekt końcowy. Na pewno skorzystam ponownie przy malowaniu dachu."</p>
+        <div class="flex items-center gap-3 border-t border-white/5 pt-5">
+          <div class="w-10 h-10 rounded-full bg-[#003665]/40 flex items-center justify-center text-[#4a8fd4] font-800 text-sm">PM</div>
+          <div>
+            <div class="text-sm font-700 text-white">Piotr M.</div>
+            <div class="text-xs text-[#636c7a]">Wawer, Warszawa</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard p-5 md:p-7 fade-up d3">
+        <div class="flex gap-1 mb-5">
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 text-[#E4000F]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="text-[#a8b0bc] text-sm leading-relaxed mb-6">"Korzystam z usług PROFI już trzeci rok z rzędu. Zawsze terminowo, zawsze solidnie i zawsze w dobrej cenie. Szczególnie polecam malowanie i impregnację dachu – efekt trzyma się przez lata."</p>
+        <div class="flex items-center gap-3 border-t border-white/5 pt-5">
+          <div class="w-10 h-10 rounded-full bg-[#E4000F]/15 flex items-center justify-center text-[#E4000F] font-800 text-sm">MW</div>
+          <div>
+            <div class="text-sm font-700 text-white">Marek W.</div>
+            <div class="text-xs text-[#636c7a]">Wilanów, Warszawa</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     CTA BANNER 2 – with video background
+════════════════════════════════════════ -->
+<section class="cta-video-section relative py-28 overflow-hidden">
+  <video class="hero-video opacity-30" autoplay muted loop playsinline>
+    <source src="ІВАН AI/IMG_1648.MOV" type="video/mp4">
+    <source src="ІВАН AI/IMG_1185.MOV" type="video/mp4">
+  </video>
+  <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(9,9,11,0.92) 0%, rgba(0,54,101,0.7) 50%, rgba(9,9,11,0.92) 100%);"></div>
+
+  <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+    <div class="label mb-5 fade-up">Gotowy na odmianę?</div>
+    <h2 class="title mb-6 fade-up d2">Twoja nieruchomość zasługuje na profesjonalną opiekę</h2>
+    <p class="body-text text-[#a8b0bc] mb-10 fade-up d3 text-lg">Zostaw nam swoje dane – oddzwonimy w ciągu godziny i bezpłatnie wycenimy całe zlecenie.</p>
+    <a href="#kontakt" class="btn-red text-base px-10 py-4 fade-up d4">
+      Umów bezpłatną wycenę
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     WORK PROCESS
+════════════════════════════════════════ -->
+<section id="proces" class="py-14 md:py-32 bg-[#09090b]">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="mb-16 fade-up">
+      <div class="label mb-4">Jak działamy</div>
+      <h2 class="title max-w-xl">Prosty i przejrzysty proces realizacji</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <div class="relative bg-[#111114] p-8 border border-white/5 fade-up d1" style="box-shadow: 0 2px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);">
+        <div class="step-no">01</div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 border border-[#E4000F]/30 flex items-center justify-center mb-6 text-[#E4000F]">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <h3 class="text-base font-800 text-white mb-3">Kontakt i wycena</h3>
+          <p class="text-sm text-[#9299a8] leading-relaxed">Skontaktuj się z nami telefonicznie lub przez formularz. Bezpłatnie wycenimy usługę w ciągu 24 godzin.</p>
+        </div>
+      </div>
+
+      <div class="relative bg-[#111114] p-8 border border-white/5 fade-up d2" style="box-shadow: 0 2px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);">
+        <div class="step-no">02</div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 border border-[#E4000F]/30 flex items-center justify-center mb-6 text-[#E4000F]">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 class="text-base font-800 text-white mb-3">Termin realizacji</h3>
+          <p class="text-sm text-[#9299a8] leading-relaxed">Ustalamy termin wykonania pracy dostosowany do Twoich potrzeb. Działamy sprawnie i bez zbędnych opóźnień.</p>
+        </div>
+      </div>
+
+      <div class="relative bg-[#111114] p-8 border border-white/5 fade-up d3" style="box-shadow: 0 2px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);">
+        <div class="step-no">03</div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 border border-[#E4000F]/30 flex items-center justify-center mb-6 text-[#E4000F]">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="text-base font-800 text-white mb-3">Profesjonalna realizacja</h3>
+          <p class="text-sm text-[#9299a8] leading-relaxed">Przyjeżdżamy z własnym sprzętem i materiałami. Pracujemy dokładnie, chroniąc Twoje otoczenie i roślinność.</p>
+        </div>
+      </div>
+
+      <div class="relative bg-[#111114] p-8 border border-[#E4000F]/20 fade-up d4" style="box-shadow: 0 2px 20px rgba(0,0,0,0.4), 0 0 0 1px rgba(228,0,15,0.06), inset 0 1px 0 rgba(255,255,255,0.04);">
+        <div class="step-no">04</div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 border border-[#E4000F]/40 flex items-center justify-center mb-6 bg-[#E4000F]/8 text-[#E4000F]">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 class="text-base font-800 text-white mb-3">Odbiór i gwarancja</h3>
+          <p class="text-sm text-[#9299a8] leading-relaxed">Po zakończeniu prac wspólnie oceniamy efekty. Udzielamy gwarancji na wszystkie wykonane usługi.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     LOCATION
+════════════════════════════════════════ -->
+<section id="lokalizacja" class="py-14 md:py-32 bg-[#0d0d10]">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="mb-12 fade-up">
+      <div class="label mb-4">Obszar działania</div>
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+        <h2 class="title flex-1 min-w-0">Obsługujemy Warszawę<br>i całe Mazowsze</h2>
+        <p class="body-text max-w-sm md:pt-3">Działamy na terenie Warszawy oraz w promieniu 50 km od stolicy. Wyjeżdżamy do wszystkich dzielnic.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <!-- Districts list -->
+      <div class="lg:col-span-1 fade-up">
+        <div class="bg-[#111114] border border-white/5 p-6 h-full" style="box-shadow: 0 2px 20px rgba(0,0,0,0.4);">
+          <h3 class="text-sm font-800 text-white tracking-tight mb-5">Obsługiwane dzielnice</h3>
+          <div class="grid grid-cols-2 gap-y-2">
+            <div class="flex items-center gap-2 text-sm text-[#9299a8]"><span class="w-1.5 h-1.5 bg-[#E4000F] rounded-full flex-shrink-0"></span>Mokotów</div>
+            <div class="flex items-center gap-2 text-sm text-[#9299a8]"><span class="w-1.5 h-1.5 bg-[#E4000F] rounded-full flex-shrink-0"></span>Ursynów</div>
+            <div class="flex items-center gap-2 text-sm text-[#9299a8]"><span class="w-1.5 h-1.5 bg-[#E4000F] rounded-full flex-shrink-0"></span>Wilanów</div>
+            <div class="flex items-center gap-2 text-sm text-[#9299a8]"><span class="w-1.5 h-1.5 bg-[#E4000F] rounded-full flex-shrink-0"></span>Wawer</div>
+            <div class="flex items-center gap-2 text-sm text-[#9299a8]"><span class="w-1.5 h-1.5 bg-[#E4000F] rounded-full flex-shrink-0"></span>Praga Południe</div>
+            <div class="flex items-center gap-2 text-sm text-[#9299a8]"><span class="w-1.5 h-1.5 bg-[#E4000F] rounded-full flex-shrink-0"></span>Bemowo</div>
+            <div class="flex items-center gap-2 text-sm text-[#9299a8]"><span class="w-1.5 h-1.5 bg-[#E4000F] rounded-full flex-shrink-0"></span>Białołęka</div>
+            <div class="flex items-center gap-2 text-sm text-[#9299a8]"><span class="w-1.5 h-1.5 bg-[#E4000F] rounded-full flex-shrink-0"></span>Targówek</div>
+            <div class="flex items-center gap-2 text-sm text-[#9299a8]"><span class="w-1.5 h-1.5 bg-[#E4000F] rounded-full flex-shrink-0"></span>Ochota</div>
+            <div class="flex items-center gap-2 text-sm text-[#9299a8]"><span class="w-1.5 h-1.5 bg-[#E4000F] rounded-full flex-shrink-0"></span>Wola</div>
+            <div class="flex items-center gap-2 text-sm text-[#9299a8]"><span class="w-1.5 h-1.5 bg-[#E4000F] rounded-full flex-shrink-0"></span>Żoliborz</div>
+            <div class="flex items-center gap-2 text-sm text-[#9299a8]"><span class="w-1.5 h-1.5 bg-[#E4000F] rounded-full flex-shrink-0"></span>Centrum</div>
+          </div>
+          <div class="mt-6 pt-5 border-t border-white/5">
+            <p class="text-xs text-[#636c7a]">Działamy również w okolicach Warszawy: Piaseczno, Pruszków, Legionowo, Otwock i inne.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="lg:col-span-2 fade-up d2">
+        <div class="map-iframe-wrap overflow-hidden" style="height: 420px;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156388.4!2d20.9211!3d52.2297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669a869f01%3A0x72f0be2a688b5fb9!2sWarszawa!5e0!3m2!1spl!2spl!4v1"
+            width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(0.85) contrast(1.1);" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FAQ
+════════════════════════════════════════ -->
+<section id="faq" class="py-14 md:py-32 bg-[#09090b]">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Header row -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-14 fade-up">
+      <div>
+        <div class="label mb-4">FAQ</div>
+        <h2 class="title">Najczęściej zadawane pytania</h2>
+      </div>
+      <div class="flex flex-col justify-end gap-4">
+        <p class="body-text">Masz pytania? Chętnie odpowiemy. Jeśli nie znajdziesz tu odpowiedzi, skontaktuj się z nami bezpośrednio.</p>
+        <div><a href="#kontakt" class="btn-red">Zadaj pytanie</a></div>
+      </div>
+    </div>
+
+    <!-- Accordion -->
+    <div class="fade-up d2" id="faq2-list">
+
+      <div class="faq2-item faq2-open">
+        <button class="faq2-btn" onclick="toggleFaq2(this)">
+          <span class="faq2-num">01</span>
+          <span class="faq2-q">Jak długo trwa mycie elewacji?</span>
+          <span class="faq2-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq2-panel">
+          <div class="faq2-panel-inner">
+            <p class="faq2-answer">Czas zależy od powierzchni i stopnia zabrudzenia. Standardowy dom jednorodzinny (ok. 200 m² elewacji) czyścimy w ciągu 4–6 godzin. Przy malowaniu – 1–2 dni robocze.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq2-item">
+        <button class="faq2-btn" onclick="toggleFaq2(this)">
+          <span class="faq2-num">02</span>
+          <span class="faq2-q">Czy mycie dachu jest bezpieczne dla dachówek?</span>
+          <span class="faq2-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq2-panel">
+          <div class="faq2-panel-inner">
+            <p class="faq2-answer">Tak. Stosujemy odpowiednie ciśnienie robocze i specjalistyczne środki biobójcze, które nie uszkadzają dachówek ceramicznych ani betonowych. Po myciu opcjonalnie nakładamy impregnat ochronny.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq2-item">
+        <button class="faq2-btn" onclick="toggleFaq2(this)">
+          <span class="faq2-num">03</span>
+          <span class="faq2-q">Jak długo działa impregnacja kostki brukowej?</span>
+          <span class="faq2-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq2-panel">
+          <div class="faq2-panel-inner">
+            <p class="faq2-answer">Przy standardowym użytkowaniu impregnacja utrzymuje się 3–5 lat. Chroni przed wilgocią, mrozem, glonami i olejami. Regularne mycie ciśnieniowe co 2 lata znacząco przedłuża efekt.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq2-item">
+        <button class="faq2-btn" onclick="toggleFaq2(this)">
+          <span class="faq2-num">04</span>
+          <span class="faq2-q">Czy środki chemiczne są bezpieczne dla roślin?</span>
+          <span class="faq2-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq2-panel">
+          <div class="faq2-panel-inner">
+            <p class="faq2-answer">Używamy wyłącznie biodegradowalnych środków chemicznych o neutralnym pH. Przed pracą zabezpieczamy rabaty i krzewy folią ochronną. Ogród jest bezpieczny bezpośrednio po zakończeniu prac.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq2-item">
+        <button class="faq2-btn" onclick="toggleFaq2(this)">
+          <span class="faq2-num">05</span>
+          <span class="faq2-q">Czy udzielacie gwarancji na wykonane prace?</span>
+          <span class="faq2-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq2-panel">
+          <div class="faq2-panel-inner">
+            <p class="faq2-answer">Tak. Na mycie i impregnację udzielamy gwarancji 12 miesięcy. Na malowanie i renowację elewacji – 24 miesiące. Na układanie płytek – 36 miesięcy zgodnie z normami budowlanymi.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq2-item">
+        <button class="faq2-btn" onclick="toggleFaq2(this)">
+          <span class="faq2-num">06</span>
+          <span class="faq2-q">Jak wyliczyć koszt usługi?</span>
+          <span class="faq2-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq2-panel">
+          <div class="faq2-panel-inner">
+            <p class="faq2-answer">Wycena jest zawsze bezpłatna. Skontaktuj się z nami, opisując zakres prac i podając przybliżone wymiary. Możemy też umówić wizję lokalną – przyjedziemy i wycenimy na miejscu.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     CONTACT FORM
+════════════════════════════════════════ -->
+<section id="kontakt" class="py-14 md:py-32 bg-[#0d0d10]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+      <!-- Left – contact info -->
+      <div class="fade-up">
+        <div class="label mb-5">Kontakt</div>
+        <h2 class="title mb-6">Skontaktuj się z nami</h2>
+        <p class="body-text mb-10">Wypełnij formularz, a oddzwonimy w ciągu godziny. Możesz też napisać bezpośrednio lub zadzwonić. Wycena jest zawsze bezpłatna.</p>
+
+        <!-- Contact blocks -->
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 border border-white/8 flex items-center justify-center flex-shrink-0 text-[#E4000F]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-1">Telefon</div>
+              <a href="tel:+48783779725" class="text-lg font-700 text-white hover:text-[#E4000F] transition-colors">+48 783 779 725</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 border border-white/8 flex items-center justify-center flex-shrink-0 text-[#E4000F]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-1">E-mail</div>
+              <a href="mailto:kontakt@profi-mycie.pl" class="text-lg font-700 text-white hover:text-[#E4000F] transition-colors">kontakt@profi-mycie.pl</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 border border-white/8 flex items-center justify-center flex-shrink-0 text-[#E4000F]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-1">Obszar działania</div>
+              <div class="text-base font-600 text-white">Warszawa i okolice (50 km)</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 border border-white/8 flex items-center justify-center flex-shrink-0 text-[#E4000F]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-1">Godziny pracy</div>
+              <div class="text-base font-600 text-white">Pon–Sob: 7:00–19:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right – form -->
+      <div class="fade-up d2">
+        <form id="contactForm" onsubmit="handleSubmit(event)" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-2">Imię i nazwisko *</label>
+              <input type="text" class="finput" placeholder="Jan Kowalski" required>
+            </div>
+            <div>
+              <label class="block text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-2">Telefon *</label>
+              <input type="tel" class="finput" placeholder="+48 783 779 725" required>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-2">E-mail</label>
+            <input type="email" class="finput" placeholder="jan@example.pl">
+          </div>
+          <div>
+            <label class="block text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-2">Interesująca usługa *</label>
+            <select class="finput" required>
+              <option value="" disabled selected>Wybierz usługę...</option>
+              <option>Mycie kostki brukowej</option>
+              <option>Malowanie kostki impregnatem</option>
+              <option>Mycie dachów i ogrodzeń</option>
+              <option>Mycie i malowanie elewacji</option>
+              <option>Naprawy pęknięć i odnowa elewacji</option>
+              <option>Układanie płytek na tarasach/balkonach</option>
+              <option>Inne</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-2">Wiadomość</label>
+            <textarea class="finput" rows="4" placeholder="Opisz krótko zakres prac, lokalizację i przybliżone wymiary..."></textarea>
+          </div>
+          <div class="pt-2">
+            <button type="submit" class="btn-red w-full py-4 text-base justify-center">
+              Wyślij zapytanie – bezpłatna wycena
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+          <p class="text-xs text-[#4e5766] leading-relaxed">Wysyłając formularz, zgadzasz się na przetwarzanie danych osobowych w celu przygotowania wyceny. Dane nie są udostępniane osobom trzecim.</p>
+        </form>
+
+        <!-- Success message -->
+        <div id="formSuccess" class="hidden text-center py-12">
+          <div class="w-16 h-16 bg-[#E4000F]/10 border border-[#E4000F]/30 mx-auto flex items-center justify-center mb-5 text-[#E4000F]">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 class="text-xl font-800 text-white mb-2">Wiadomość wysłana!</h3>
+          <p class="text-[#9299a8]">Oddzwonimy do Ciebie w ciągu godziny.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="bg-[#09090b] border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="text-[26px] font-black tracking-[-0.04em]">PRO<span class="text-[#E4000F]">FI</span><span class="text-[#E4000F] text-base">•</span></span>
+        </div>
+        <p class="text-sm text-[#9299a8] leading-relaxed max-w-sm mb-5">Profesjonalne mycie ciśnieniowe, malowanie impregnatem i renowacja nieruchomości na terenie Warszawy i Mazowsza.</p>
+        <div class="flex gap-3">
+          <a href="tel:+48783779725" class="flex items-center gap-2 text-sm font-600 text-[#9299a8] hover:text-white transition-colors">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            +48 783 779 725
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-700 tracking-[0.12em] uppercase text-[#4e5766] mb-5">Usługi</h4>
+        <ul class="space-y-3">
+          <li><a href="#uslugi" class="text-sm text-[#9299a8] hover:text-white transition-colors">Mycie kostki brukowej</a></li>
+          <li><a href="#uslugi" class="text-sm text-[#9299a8] hover:text-white transition-colors">Malowanie impregnatem</a></li>
+          <li><a href="#uslugi" class="text-sm text-[#9299a8] hover:text-white transition-colors">Mycie dachów</a></li>
+          <li><a href="#uslugi" class="text-sm text-[#9299a8] hover:text-white transition-colors">Mycie elewacji</a></li>
+          <li><a href="#uslugi" class="text-sm text-[#9299a8] hover:text-white transition-colors">Renowacja elewacji</a></li>
+          <li><a href="#uslugi" class="text-sm text-[#9299a8] hover:text-white transition-colors">Układanie płytek</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-700 tracking-[0.12em] uppercase text-[#4e5766] mb-5">Informacje</h4>
+        <ul class="space-y-3">
+          <li><a href="#o-nas" class="text-sm text-[#9299a8] hover:text-white transition-colors">O firmie</a></li>
+          <li><a href="#portfolio" class="text-sm text-[#9299a8] hover:text-white transition-colors">Portfolio</a></li>
+          <li><a href="#opinie" class="text-sm text-[#9299a8] hover:text-white transition-colors">Opinie klientów</a></li>
+          <li><a href="#faq" class="text-sm text-[#9299a8] hover:text-white transition-colors">FAQ</a></li>
+          <li><a href="#kontakt" class="text-sm text-[#9299a8] hover:text-white transition-colors">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-[#4e5766]">© 2025 PROFI – Mycie i Renowacja Nieruchomości. Wszelkie prawa zastrzeżone.</p>
+      <p class="text-xs text-[#4e5766]">Warszawa, Polska</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script>
+// ── Sticky header
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
+
+// ── Mobile menu
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobile-menu');
+const b1 = document.getElementById('b1');
+const b2 = document.getElementById('b2');
+const b3 = document.getElementById('b3');
+let menuOpen = false;
+
+function openMenu() {
+  menuOpen = true;
+  mobileMenu.classList.add('open');
+  b1.style.transform = 'translateY(7px) rotate(45deg)';
+  b2.style.opacity = '0';
+  b3.style.transform = 'translateY(-7px) rotate(-45deg)';
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuOpen = false;
+  mobileMenu.classList.remove('open');
+  b1.style.transform = '';
+  b2.style.opacity = '';
+  b3.style.transform = '';
+  document.body.style.overflow = '';
+}
+
+burger.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
+document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
+
+// ── FAQ accordion (v2 — CSS grid-template-rows animation)
+function toggleFaq2(btn) {
+  const item = btn.closest('.faq2-item');
+  const isOpen = item.classList.contains('faq2-open');
+  // Close all
+  document.querySelectorAll('.faq2-item.faq2-open').forEach(i => i.classList.remove('faq2-open'));
+  // Open clicked if it was closed
+  if (!isOpen) item.classList.add('faq2-open');
+}
+
+// ── Scroll animations (IntersectionObserver)
+const fadeEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+fadeEls.forEach(el => observer.observe(el));
+
+// Fallback: ensure all elements become visible (for headless / prefers-reduced-motion)
+setTimeout(() => {
+  document.querySelectorAll('.fade-up:not(.visible)').forEach(el => el.classList.add('visible'));
+}, 100);
+
+// ── Form submit
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').classList.remove('hidden');
+}
+
+// ── Counter animation
+function animateCounter(el, target, suffix = '') {
+  let start = 0;
+  const duration = 1200;
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(eased * target) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+// Animate stats when hero is visible
+const heroStats = document.querySelectorAll('.hero-stat');
+
+// ── LIGHTBOX ──
+(function () {
+  // Collect all portfolio items in order
+  const items = Array.from(document.querySelectorAll('#portfolio-grid .pitem[data-lb-src]'));
+  let current = 0;
+
+  // Build DOM
+  const lb     = document.createElement('div'); lb.id = 'lb';
+  const wrap   = document.createElement('div'); wrap.id = 'lb-img-wrap';
+  const img    = document.createElement('img'); img.id = 'lb-img'; img.alt = '';
+  const close  = document.createElement('button'); close.id = 'lb-close'; close.setAttribute('aria-label', 'Zamknij');
+  close.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+  const prev   = document.createElement('button'); prev.className = 'lb-arrow'; prev.id = 'lb-prev'; prev.setAttribute('aria-label', 'Poprzednie');
+  prev.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>';
+  const next   = document.createElement('button'); next.className = 'lb-arrow'; next.id = 'lb-next'; next.setAttribute('aria-label', 'Następne');
+  next.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+  const footer  = document.createElement('div'); footer.id = 'lb-footer';
+  const caption = document.createElement('span'); caption.id = 'lb-caption';
+  const counter = document.createElement('span'); counter.id = 'lb-counter';
+
+  footer.append(caption, counter);
+  wrap.append(img);
+  lb.append(wrap, close, prev, next, footer);
+  document.body.append(lb);
+
+  function show(index) {
+    current = (index + items.length) % items.length;
+    const item = items[current];
+    img.style.opacity = '0';
+    img.style.transform = 'scale(0.97)';
+    img.src = item.dataset.lbSrc;
+    caption.textContent = item.dataset.lbCaption || '';
+    counter.textContent = `${current + 1} / ${items.length}`;
+    img.onload = () => {
+      img.style.transition = 'opacity 0.25s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1)';
+      img.style.opacity = '1';
+      img.style.transform = 'scale(1)';
+    };
+    // Handle cached images
+    if (img.complete && img.naturalWidth) {
+      img.style.opacity = '1';
+      img.style.transform = 'scale(1)';
+    }
+  }
+
+  function open(index) {
+    show(index);
+    lb.classList.add('lb-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.classList.remove('lb-open');
+    document.body.style.overflow = '';
+  }
+
+  // Click on portfolio items
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => open(i));
+  });
+
+  // Controls
+  close.addEventListener('click', closeLb);
+  prev.addEventListener('click', (e) => { e.stopPropagation(); show(current - 1); });
+  next.addEventListener('click', (e) => { e.stopPropagation(); show(current + 1); });
+
+  // Click backdrop (outside image) to close
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb || e.target === wrap) closeLb();
+  });
+
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('lb-open')) return;
+    if (e.key === 'Escape')      closeLb();
+    if (e.key === 'ArrowLeft')   show(current - 1);
+    if (e.key === 'ArrowRight')  show(current + 1);
+  });
+
+  // Touch/swipe
+  let touchX = null;
+  lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? show(current + 1) : show(current - 1);
+    touchX = null;
+  });
+})();
+</script>
+</body>
+</html>
