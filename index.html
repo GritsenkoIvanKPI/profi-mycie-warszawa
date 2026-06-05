@@ -897,18 +897,18 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
       <!-- RIGHT: Product photo -->
       <div class="fade-up d2 order-1 lg:order-2">
         <div class="relative">
-          <!-- Product display card — light background intentional, contrasts the dark page -->
-          <div class="relative overflow-hidden" style="background: #c8cdd6; box-shadow: 0 40px 100px rgba(0,0,0,0.65), 0 8px 30px rgba(0,0,0,0.45);">
+          <!-- White card: mix-blend-mode multiply makes the photo's white background vanish -->
+          <div class="relative overflow-hidden" style="background: #fff; box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 8px 30px rgba(0,0,0,0.5);">
             <!-- Red top accent bar -->
             <div style="height: 4px; background: #E4000F;"></div>
-            <!-- Product image -->
-            <div class="flex items-center justify-center px-8 py-12 md:px-12 md:py-16">
-              <img src="capalo%20image.png" alt="Caparol SIL-Fassade i CapaDIN" class="w-full max-w-[320px] md:max-w-[360px] block" style="mix-blend-mode: multiply;">
+            <!-- Product image — fills full card width, no size cap -->
+            <div class="px-6 py-10 md:px-8 md:py-14">
+              <img src="capalo%20image.png" alt="Caparol SIL-Fassade i CapaDIN" class="w-full block" style="mix-blend-mode: multiply; display: block;">
             </div>
             <!-- Bottom caption strip -->
-            <div class="flex items-center justify-between px-6 pb-5 pt-2" style="border-top: 1px solid rgba(0,0,0,0.08);">
-              <span class="text-[0.625rem] font-700 tracking-[0.13em] uppercase" style="color: rgba(0,0,0,0.35);">SIL-Fassade · CapaDIN</span>
-              <span class="text-[0.625rem] font-700 tracking-[0.13em] uppercase" style="color: rgba(0,0,0,0.35);">Made in Germany</span>
+            <div class="flex items-center justify-between px-6 pb-5 pt-2" style="border-top: 1px solid rgba(0,0,0,0.07);">
+              <span class="text-[0.625rem] font-700 tracking-[0.13em] uppercase" style="color: rgba(0,0,0,0.3);">SIL-Fassade · CapaDIN</span>
+              <span class="text-[0.625rem] font-700 tracking-[0.13em] uppercase" style="color: rgba(0,0,0,0.3);">Made in Germany</span>
             </div>
           </div>
           <!-- 1885 badge -->
