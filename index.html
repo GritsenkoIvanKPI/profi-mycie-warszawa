@@ -894,23 +894,35 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
         </div>
       </div>
 
-      <!-- RIGHT: Product photo -->
+      <!-- RIGHT: Brand visual -->
       <div class="fade-up d2 order-1 lg:order-2">
         <div class="relative">
-          <!-- White card: mix-blend-mode multiply makes the photo's white background vanish -->
-          <div class="relative overflow-hidden" style="background: #fff; box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 8px 30px rgba(0,0,0,0.5);">
-            <!-- Red top accent bar -->
-            <div style="height: 4px; background: #E4000F;"></div>
-            <!-- Product image — fills full card width, no size cap -->
-            <div class="px-6 py-10 md:px-8 md:py-14">
-              <img src="capalo%20image.png" alt="Caparol SIL-Fassade i CapaDIN" class="w-full block" style="mix-blend-mode: multiply; display: block;">
+          <!-- Dark atmospheric showcase -->
+          <div class="relative overflow-hidden flex items-center justify-center" style="
+            min-height: 440px;
+            background:
+              radial-gradient(ellipse at 25% 65%, rgba(0,54,101,0.28) 0%, transparent 55%),
+              radial-gradient(ellipse at 78% 18%, rgba(228,0,15,0.09) 0%, transparent 50%),
+              #0d0d10;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 8px 30px rgba(0,0,0,0.5);
+          ">
+            <!-- Subtle grid texture -->
+            <div class="absolute inset-0 opacity-[0.025] pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg width=60 height=60 xmlns=http://www.w3.org/2000/svg%3E%3Cpath d=M0 0h60v60H0z fill=none stroke=white stroke-width=.5/%3E%3C/svg%3E');"></div>
+            <!-- Red top bar -->
+            <div class="absolute top-0 left-0 right-0" style="height: 4px; background: #E4000F;"></div>
+
+            <!-- Logo badge — white frame on dark field -->
+            <div class="relative z-10" style="width: min(76%, 320px);">
+              <img src="%D0%86%D0%B2%D0%B0%D0%BD%20_%20%D0%91%D1%80%D0%B8%D1%84.png" alt="Caparol" class="w-full block" style="box-shadow: 0 20px 60px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.4);">
             </div>
-            <!-- Bottom caption strip -->
-            <div class="flex items-center justify-between px-6 pb-5 pt-2" style="border-top: 1px solid rgba(0,0,0,0.07);">
-              <span class="text-[0.625rem] font-700 tracking-[0.13em] uppercase" style="color: rgba(0,0,0,0.3);">SIL-Fassade · CapaDIN</span>
-              <span class="text-[0.625rem] font-700 tracking-[0.13em] uppercase" style="color: rgba(0,0,0,0.3);">Made in Germany</span>
+
+            <!-- Bottom caption -->
+            <div class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 py-4" style="border-top: 1px solid rgba(255,255,255,0.06);">
+              <span class="text-[0.625rem] font-700 tracking-[0.13em] uppercase text-[#9299a8]">Partner od 1885 roku</span>
+              <span class="text-[0.625rem] font-700 tracking-[0.13em] uppercase text-[#9299a8]">Made in Germany</span>
             </div>
           </div>
+
           <!-- 1885 badge -->
           <div class="absolute -bottom-4 -right-4 bg-[#E4000F] px-5 py-4 z-10" style="box-shadow: 0 8px 28px rgba(228,0,15,0.5);">
             <div class="text-2xl font-900 text-white tracking-tight leading-none">1885</div>
