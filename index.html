@@ -407,6 +407,35 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
   /* Stats in hero: tighter numbers */
   .hero-stat-num { font-size: 1.75rem !important; }
 }
+
+/* ── BEFORE/AFTER SLIDER ── */
+.ba-tabs { border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; overflow-x: auto; scrollbar-width: none; }
+.ba-tabs::-webkit-scrollbar { display: none; }
+.ba-tab { flex-shrink: 0; padding: 16px 26px 18px; background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; cursor: pointer; text-align: left; transition: border-color 0.2s ease; }
+.ba-tab .ba-tab-num { display: block; font-size: 0.625rem; font-weight: 700; letter-spacing: 0.12em; color: rgba(228,0,15,0.4); margin-bottom: 4px; font-family: 'Exo 2', sans-serif; }
+.ba-tab .ba-tab-name { display: block; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.3); white-space: nowrap; transition: color 0.2s ease; font-family: 'Exo 2', sans-serif; }
+.ba-tab:hover .ba-tab-name { color: rgba(255,255,255,0.65); }
+.ba-tab.is-active .ba-tab-name { color: #fff; }
+.ba-tab.is-active { border-bottom-color: #E4000F; }
+.ba-tab.is-active .ba-tab-num { color: #E4000F; }
+.ba-panel { display: none; }
+.ba-panel.is-active { display: block; }
+.ba-track { position: relative; height: 520px; overflow: hidden; cursor: ew-resize; user-select: none; -webkit-user-select: none; background: #0d0d10; }
+@media (max-width: 640px) { .ba-track { height: 270px; } }
+.ba-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; display: block; }
+.ba-img-a { clip-path: inset(0 0 0 50%); }
+.ba-divider { position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: rgba(255,255,255,0.92); transform: translateX(-50%); pointer-events: none; box-shadow: 0 0 18px rgba(0,0,0,0.8); }
+.ba-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.3); cursor: ew-resize; pointer-events: auto; }
+.ba-label { position: absolute; top: 20px; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; padding: 7px 14px; pointer-events: none; line-height: 1; font-family: 'Exo 2', sans-serif; }
+.ba-label-b { left: 20px; background: rgba(9,9,11,0.65); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(8px); }
+.ba-label-a { right: 20px; background: #E4000F; color: #fff; }
+.ba-info { padding: 28px 0 0; display: flex; flex-direction: column; gap: 20px; }
+@media (min-width: 640px) { .ba-info { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 48px; } }
+.ba-svc-num { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #E4000F; display: block; margin-bottom: 7px; }
+.ba-svc-title { font-size: clamp(1.125rem, 2vw, 1.5rem); font-weight: 800; color: #fff; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 10px; }
+.ba-svc-desc { font-size: 0.9375rem; line-height: 1.72; color: #9299a8; max-width: 580px; }
+.ba-drag-hint { margin-top: 14px; font-size: 0.625rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.17); display: flex; align-items: center; gap: 8px; }
+.ba-drag-hint::before { content: ''; display: inline-block; width: 18px; height: 1px; background: rgba(255,255,255,0.15); }
 </style>
 </head>
 <body>
@@ -542,7 +571,7 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
 <section id="uslugi" class="py-20 md:py-32 bg-[#09090b]">
   <div class="max-w-7xl mx-auto px-6">
 
-    <div class="mb-16 fade-up">
+    <div class="mb-12 fade-up">
       <div class="label mb-4">Co robimy</div>
       <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
         <h2 class="title flex-1 min-w-0">Kompleksowe usługi dla Twojego domu</h2>
@@ -550,120 +579,112 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
       </div>
     </div>
 
-    <!-- 3-col grid of service cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <!-- Before / After comparison -->
+    <div class="fade-up d1">
 
-      <!-- Card 1 -->
-      <div class="scard fade-up d1">
-        <div class="overflow-hidden relative">
-          <img src="ІВАН AI/IMG_3620.JPG" alt="Mycie kostki brukowej" loading="lazy">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply pointer-events-none"></div>
+      <!-- Tab nav -->
+      <div class="ba-tabs">
+        <button class="ba-tab is-active" data-panel="ba-p0">
+          <span class="ba-tab-num">01</span>
+          <span class="ba-tab-name">Kostka brukowa</span>
+        </button>
+        <button class="ba-tab" data-panel="ba-p1">
+          <span class="ba-tab-num">02</span>
+          <span class="ba-tab-name">Mycie dachów</span>
+        </button>
+        <button class="ba-tab" data-panel="ba-p2">
+          <span class="ba-tab-num">03</span>
+          <span class="ba-tab-name">Elewacja</span>
+        </button>
+      </div>
+
+      <!-- Panel 0: Kostka brukowa -->
+      <div id="ba-p0" class="ba-panel is-active">
+        <div class="ba-track" data-ba-track>
+          <img class="ba-img ba-img-b" src="ІВАН AI/IMG_3600.JPG" alt="Kostka brukowa przed myciem">
+          <img class="ba-img ba-img-a" src="ІВАН AI/IMG_3620.JPG" alt="Kostka brukowa po myciu i impregnacji">
+          <div class="ba-divider">
+            <div class="ba-handle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#09090b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/></svg>
+            </div>
+          </div>
+          <span class="ba-label ba-label-b">PRZED</span>
+          <span class="ba-label ba-label-a">PO</span>
         </div>
-        <div class="p-6">
-          <div class="scard-num mb-3">01</div>
-          <div class="scard-icon"></div>
-          <h3 class="text-lg font-800 tracking-tight text-white mb-3">Mycie kostki brukowej</h3>
-          <p class="body-text text-sm">Usuwamy mchy, glony, olej i zabrudzenia z kostki brukowej metodą ciśnieniową. Efekt jak nowa nawierzchnia bez śladów lat użytkowania.</p>
-          <a href="#kontakt" class="inline-flex items-center gap-2 mt-5 text-[0.8125rem] font-700 tracking-[0.06em] uppercase text-[#E4000F] hover:gap-4 transition-all duration-200">
-            Wycena
+        <div class="ba-info">
+          <div>
+            <span class="ba-svc-num">Usługi 01 – 02</span>
+            <h3 class="ba-svc-title">Mycie i impregnacja<br>kostki brukowej</h3>
+            <p class="ba-svc-desc">Usuwamy mchy, glony, olej i zabrudzenia metodą ciśnieniową. Opcjonalnie nakładamy impregnat, który odświeża kolor i odpycha brud na lata.</p>
+            <p class="ba-drag-hint">Przesuń suwak aby porównać</p>
+          </div>
+          <a href="#kontakt" class="btn-red flex-shrink-0">
+            Bezpłatna wycena
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="scard fade-up d2">
-        <div class="overflow-hidden relative">
-          <img src="ІВАН AI/IMG_3630.JPG" alt="Malowanie kostki impregnatem" loading="lazy">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply pointer-events-none"></div>
+      <!-- Panel 1: Dach -->
+      <div id="ba-p1" class="ba-panel">
+        <div class="ba-track" data-ba-track>
+          <img class="ba-img ba-img-b" src="ІВАН AI/IMG_3655.JPG" alt="Dach przed myciem">
+          <img class="ba-img ba-img-a" src="ІВАН AI/IMG_3690.JPG" alt="Dach po myciu ciśnieniowym">
+          <div class="ba-divider">
+            <div class="ba-handle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#09090b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/></svg>
+            </div>
+          </div>
+          <span class="ba-label ba-label-b">PRZED</span>
+          <span class="ba-label ba-label-a">PO</span>
         </div>
-        <div class="p-6">
-          <div class="scard-num mb-3">02</div>
-          <div class="scard-icon"></div>
-          <h3 class="text-lg font-800 tracking-tight text-white mb-3">Malowanie kostki impregnatem</h3>
-          <p class="body-text text-sm">Nakładamy specjalistyczny impregnat, który odświeża kolor kostki i odpycha brud, olej oraz glony. Nawierzchnia dłużej zachowuje czysty wygląd, a kolejne mycie staje się znacznie łatwiejsze.</p>
-          <a href="#kontakt" class="inline-flex items-center gap-2 mt-5 text-[0.8125rem] font-700 tracking-[0.06em] uppercase text-[#E4000F] hover:gap-4 transition-all duration-200">
-            Wycena
+        <div class="ba-info">
+          <div>
+            <span class="ba-svc-num">Usługa 03</span>
+            <h3 class="ba-svc-title">Mycie dachów<br>i ogrodzeń</h3>
+            <p class="ba-svc-desc">Usuwamy mchy, porosty i glony z dachówek oraz ogrodzeń. Ciśnieniowe mycie przywraca pierwotny kolor i przedłuża żywotność pokrycia o lata.</p>
+            <p class="ba-drag-hint">Przesuń suwak aby porównać</p>
+          </div>
+          <a href="#kontakt" class="btn-red flex-shrink-0">
+            Bezpłatna wycena
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="scard fade-up d3">
-        <div class="overflow-hidden relative">
-          <img src="ІВАН AI/IMG_3690.JPG" alt="Mycie dachów i ogrodzeń" loading="lazy">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply pointer-events-none"></div>
+      <!-- Panel 2: Elewacja -->
+      <div id="ba-p2" class="ba-panel">
+        <div class="ba-track" data-ba-track>
+          <img class="ba-img ba-img-b" src="ІВАН AI/IMG_3434.JPG" alt="Elewacja przed renowacją">
+          <img class="ba-img ba-img-a" src="ІВАН AI/IMG_3440.JPG" alt="Elewacja po malowaniu">
+          <div class="ba-divider">
+            <div class="ba-handle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#09090b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/></svg>
+            </div>
+          </div>
+          <span class="ba-label ba-label-b">PRZED</span>
+          <span class="ba-label ba-label-a">PO</span>
         </div>
-        <div class="p-6">
-          <div class="scard-num mb-3">03</div>
-          <div class="scard-icon"></div>
-          <h3 class="text-lg font-800 tracking-tight text-white mb-3">Mycie dachów i ogrodzeń</h3>
-          <p class="body-text text-sm">Usuwamy mchy, porosty i glony z dachówek oraz ogrodzeń. Chronimy przed wilgocią i przedłużamy żywotność pokrycia dachowego.</p>
-          <a href="#kontakt" class="inline-flex items-center gap-2 mt-5 text-[0.8125rem] font-700 tracking-[0.06em] uppercase text-[#E4000F] hover:gap-4 transition-all duration-200">
-            Wycena
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="scard fade-up d1">
-        <div class="overflow-hidden relative">
-          <img src="ІВАН AI/IMG_3550.JPG" alt="Mycie i malowanie elewacji" loading="lazy">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply pointer-events-none"></div>
-        </div>
-        <div class="p-6">
-          <div class="scard-num mb-3">04</div>
-          <div class="scard-icon"></div>
-          <h3 class="text-lg font-800 tracking-tight text-white mb-3">Mycie i malowanie elewacji</h3>
-          <p class="body-text text-sm">Czyszczenie ciśnieniowe i malowanie tynków. Usuwamy zazielenienie, plamy i zanieczyszczenia. Dom odzyskuje świeży, zadbany wygląd.</p>
-          <a href="#kontakt" class="inline-flex items-center gap-2 mt-5 text-[0.8125rem] font-700 tracking-[0.06em] uppercase text-[#E4000F] hover:gap-4 transition-all duration-200">
-            Wycena
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="scard fade-up d2">
-        <div class="overflow-hidden relative">
-          <img src="ІВАН AI/IMG_3470.JPG" alt="Naprawy pęknięć i odnowa elewacji" loading="lazy">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply pointer-events-none"></div>
-        </div>
-        <div class="p-6">
-          <div class="scard-num mb-3">05</div>
-          <div class="scard-icon"></div>
-          <h3 class="text-lg font-800 tracking-tight text-white mb-3">Naprawy pęknięć i odnowa elewacji</h3>
-          <p class="body-text text-sm">Uzupełniamy pęknięcia i ubytki w tynku, wyrównujemy powierzchnię i nakładamy nową powłokę malarską. Kompleksowa renowacja elewacji.</p>
-          <a href="#kontakt" class="inline-flex items-center gap-2 mt-5 text-[0.8125rem] font-700 tracking-[0.06em] uppercase text-[#E4000F] hover:gap-4 transition-all duration-200">
-            Wycena
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="scard fade-up d3">
-        <div class="overflow-hidden relative">
-          <img src="ІВАН AI/IMG_3715.JPG" alt="Układanie płytek na tarasach i balkonach" loading="lazy">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-multiply pointer-events-none"></div>
-        </div>
-        <div class="p-6">
-          <div class="scard-num mb-3">06</div>
-          <div class="scard-icon"></div>
-          <h3 class="text-lg font-800 tracking-tight text-white mb-3">Układanie płytek na tarasach</h3>
-          <p class="body-text text-sm">Profesjonalne układanie płytek gresowych i ceramicznych na tarasach, balkonach i schodach zewnętrznych. Trwałe i estetyczne wykończenie.</p>
-          <a href="#kontakt" class="inline-flex items-center gap-2 mt-5 text-[0.8125rem] font-700 tracking-[0.06em] uppercase text-[#E4000F] hover:gap-4 transition-all duration-200">
-            Wycena
+        <div class="ba-info">
+          <div>
+            <span class="ba-svc-num">Usługi 04 – 05</span>
+            <h3 class="ba-svc-title">Mycie i malowanie<br>elewacji</h3>
+            <p class="ba-svc-desc">Czyszczenie ciśnieniowe tynków, usuwanie zazielenienia i plam. Nakładamy trwałą powłokę malarską – dom odzyskuje świeży wygląd na 3–5 lat.</p>
+            <p class="ba-drag-hint">Przesuń suwak aby porównać</p>
+          </div>
+          <a href="#kontakt" class="btn-red flex-shrink-0">
+            Bezpłatna wycena
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
 
     </div>
+
   </div>
 </section>
+
+
 
 
 <!-- ════════════════════════════════════════
@@ -1577,6 +1598,50 @@ const heroStats = document.querySelectorAll('.hero-stat');
     const dx = e.changedTouches[0].clientX - touchX;
     if (Math.abs(dx) > 50) dx < 0 ? show(current + 1) : show(current - 1);
     touchX = null;
+  });
+})();
+
+// ── Before/After Sliders
+(function() {
+  function initSlider(track) {
+    const afterImg = track.querySelector('.ba-img-a');
+    const divider  = track.querySelector('.ba-divider');
+    let dragging = false;
+
+    function setPos(p) {
+      p = Math.max(3, Math.min(97, p));
+      afterImg.style.clipPath = 'inset(0 0 0 ' + p + '%)';
+      divider.style.left = p + '%';
+    }
+
+    function getPos(e) {
+      const rect = track.getBoundingClientRect();
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      return ((x - rect.left) / rect.width) * 100;
+    }
+
+    setPos(50);
+
+    track.addEventListener('mousedown', function(e) { dragging = true; setPos(getPos(e)); e.preventDefault(); });
+    document.addEventListener('mousemove', function(e) { if (dragging) setPos(getPos(e)); });
+    document.addEventListener('mouseup', function() { dragging = false; });
+    track.addEventListener('touchstart', function(e) { dragging = true; setPos(getPos(e)); }, { passive: true });
+    document.addEventListener('touchmove', function(e) { if (dragging) { setPos(getPos(e)); e.preventDefault(); } }, { passive: false });
+    document.addEventListener('touchend', function() { dragging = false; });
+  }
+
+  document.querySelectorAll('[data-ba-track]').forEach(initSlider);
+
+  document.querySelectorAll('.ba-tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.ba-tab').forEach(function(b) { b.classList.remove('is-active'); });
+      document.querySelectorAll('.ba-panel').forEach(function(p) { p.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      const panel = document.getElementById(btn.dataset.panel);
+      panel.classList.add('is-active');
+      const track = panel.querySelector('[data-ba-track]');
+      if (track) initSlider(track);
+    });
   });
 })();
 </script>
