@@ -836,73 +836,65 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
 <!-- ════════════════════════════════════════
      CAPAROL PARTNER
 ════════════════════════════════════════ -->
-<section id="caparol" class="py-20 md:py-32 relative overflow-hidden" style="background: #0d0d10;">
-  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 15% 60%, rgba(0,54,101,0.10) 0%, transparent 55%), radial-gradient(ellipse at 85% 20%, rgba(228,0,15,0.06) 0%, transparent 50%);"></div>
-  <!-- Subtle grid texture -->
-  <div class="absolute inset-0 pointer-events-none opacity-[0.025]" style="background-image: url('data:image/svg+xml,%3Csvg width=60 height=60 xmlns=http://www.w3.org/2000/svg%3E%3Cpath d=M0 0h60v60H0z fill=none stroke=white stroke-width=.5/%3E%3C/svg%3E');"></div>
+<section id="caparol" class="py-20 md:py-32 relative overflow-hidden bg-[#09090b]">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 75% 40%, rgba(0,54,101,0.10) 0%, transparent 58%), radial-gradient(ellipse at 5% 75%, rgba(228,0,15,0.05) 0%, transparent 50%);"></div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-    <!-- Section header -->
-    <div class="mb-14 fade-up">
-      <div class="label mb-4">Nasz partner</div>
-      <h2 class="title max-w-xl">Malujemy z Caparol</h2>
-    </div>
+      <!-- LEFT: Content -->
+      <div class="fade-up order-2 lg:order-1">
+        <div class="label mb-5">Nasz partner</div>
+        <h2 class="title mb-3">Caparol</h2>
+        <p class="text-base text-[#9299a8] font-500 mb-7" style="letter-spacing: 0.01em;">Czołowy producent farb z Niemiec — od 1885 roku</p>
+        <p class="body-text mb-10">Dobieramy materiały świadomie. <span class="kw">Caparol</span> to jeden z czołowych europejskich producentów farb i systemów elewacyjnych. Ponad <span class="kw-r">140 lat</span> doświadczenia i rygorystyczne normy jakości sprawiają, że efekty są trwałe i naprawdę widoczne.</p>
 
-    <!-- Two-column layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-
-      <!-- Logo column -->
-      <div class="fade-up flex flex-col items-start">
-        <div class="relative">
-          <!-- White card for colorful logo -->
-          <div class="bg-white flex items-center justify-center p-10 md:p-14" style="box-shadow: 0 24px 80px rgba(0,0,0,0.55), 0 4px 24px rgba(0,0,0,0.4);">
-            <img src="Іван _ Бриф.png" alt="Caparol" class="w-full max-w-[260px] md:max-w-[300px] block" loading="lazy">
+        <div class="grid grid-cols-2 gap-3">
+          <div class="stat-box p-5">
+            <div class="w-8 h-0.5 bg-[#E4000F] mb-3"></div>
+            <div class="text-sm font-800 text-white mb-1">Trwałość powłok</div>
+            <div class="text-xs text-[#9299a8] leading-relaxed">Elastyczna warstwa odporna na pęknięcia i odkształcenia podłoża.</div>
           </div>
-          <!-- Founded badge -->
-          <div class="absolute -bottom-5 -right-5 bg-[#E4000F] px-5 py-4" style="box-shadow: 0 8px 32px rgba(228,0,15,0.45);">
-            <div class="text-2xl font-900 text-white tracking-tight leading-none">1885</div>
-            <div class="text-[0.625rem] font-700 tracking-[0.12em] uppercase text-white/75 mt-0.5">Rok założenia</div>
+          <div class="stat-box p-5">
+            <div class="w-8 h-0.5 bg-[#E4000F] mb-3"></div>
+            <div class="text-sm font-800 text-white mb-1">Odporność na UV</div>
+            <div class="text-xs text-[#9299a8] leading-relaxed">Stabilna kolorystyka bez blaknięcia przez wiele lat.</div>
           </div>
-        </div>
-        <!-- Origin strip -->
-        <div class="mt-10 flex items-center gap-3">
-          <div class="w-8 h-px bg-[#E4000F]"></div>
-          <span class="text-xs font-700 tracking-[0.14em] uppercase text-[#9299a8]">Niemcy · Jakość potwierdzona dekadami</span>
+          <div class="stat-box p-5">
+            <div class="w-8 h-0.5 bg-[#E4000F] mb-3"></div>
+            <div class="text-sm font-800 text-white mb-1">Oddychalność</div>
+            <div class="text-xs text-[#9299a8] leading-relaxed">Para wodna uchodzi swobodnie — ściana nie zawilgaca.</div>
+          </div>
+          <div class="stat-box p-5">
+            <div class="w-8 h-0.5 bg-[#E4000F] mb-3"></div>
+            <div class="text-sm font-800 text-white mb-1">Normy DIN</div>
+            <div class="text-xs text-[#9299a8] leading-relaxed">Rygorystyczna kontrola produkcji według standardów niemieckich.</div>
+          </div>
         </div>
       </div>
 
-      <!-- Content column -->
-      <div class="fade-up d2">
-        <p class="body-text mb-10">Dobieramy materiały świadomie. <span class="kw">Caparol</span> to czołowy niemiecki producent farb i systemów elewacyjnych z ponad <span class="kw-r">140-letnią tradycją</span>. Ich produkty są stosowane przez profesjonalistów w całej Europie – bo rzeczywiście działają.</p>
-
-        <!-- Feature cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-          <div class="stat-box p-5">
-            <div class="w-8 h-0.5 bg-[#E4000F] mb-3"></div>
-            <div class="text-sm font-800 text-white tracking-tight mb-1">Trwałość powłok</div>
-            <div class="text-xs text-[#9299a8] leading-relaxed">Elastyczna powłoka odporna na pęknięcia i odkształcenia podłoża.</div>
+      <!-- RIGHT: Product photo -->
+      <div class="fade-up d2 order-1 lg:order-2">
+        <div class="relative">
+          <!-- Product display card — light background intentional, contrasts the dark page -->
+          <div class="relative overflow-hidden" style="background: #c8cdd6; box-shadow: 0 40px 100px rgba(0,0,0,0.65), 0 8px 30px rgba(0,0,0,0.45);">
+            <!-- Red top accent bar -->
+            <div style="height: 4px; background: #E4000F;"></div>
+            <!-- Product image -->
+            <div class="flex items-center justify-center px-8 py-12 md:px-12 md:py-16">
+              <img src="capalo%20image.png" alt="Caparol SIL-Fassade i CapaDIN" class="w-full max-w-[320px] md:max-w-[360px] block" style="mix-blend-mode: multiply;">
+            </div>
+            <!-- Bottom caption strip -->
+            <div class="flex items-center justify-between px-6 pb-5 pt-2" style="border-top: 1px solid rgba(0,0,0,0.08);">
+              <span class="text-[0.625rem] font-700 tracking-[0.13em] uppercase" style="color: rgba(0,0,0,0.35);">SIL-Fassade · CapaDIN</span>
+              <span class="text-[0.625rem] font-700 tracking-[0.13em] uppercase" style="color: rgba(0,0,0,0.35);">Made in Germany</span>
+            </div>
           </div>
-
-          <div class="stat-box p-5">
-            <div class="w-8 h-0.5 bg-[#E4000F] mb-3"></div>
-            <div class="text-sm font-800 text-white tracking-tight mb-1">Odporność na UV</div>
-            <div class="text-xs text-[#9299a8] leading-relaxed">Stabilna kolorystyka przez lata – brak blaknięcia pod wpływem słońca.</div>
+          <!-- 1885 badge -->
+          <div class="absolute -bottom-4 -right-4 bg-[#E4000F] px-5 py-4 z-10" style="box-shadow: 0 8px 28px rgba(228,0,15,0.5);">
+            <div class="text-2xl font-900 text-white tracking-tight leading-none">1885</div>
+            <div class="text-[0.5625rem] font-700 tracking-[0.1em] uppercase mt-0.5" style="color: rgba(255,255,255,0.7);">Rok założenia</div>
           </div>
-
-          <div class="stat-box p-5">
-            <div class="w-8 h-0.5 bg-[#E4000F] mb-3"></div>
-            <div class="text-sm font-800 text-white tracking-tight mb-1">Oddychalność</div>
-            <div class="text-xs text-[#9299a8] leading-relaxed">Para wodna swobodnie uchodzi na zewnątrz – brak kondensacji w ścianie.</div>
-          </div>
-
-          <div class="stat-box p-5">
-            <div class="w-8 h-0.5 bg-[#E4000F] mb-3"></div>
-            <div class="text-sm font-800 text-white tracking-tight mb-1">Normy jakości DIN</div>
-            <div class="text-xs text-[#9299a8] leading-relaxed">Rygorystyczna kontrola produkcji według niemieckich standardów przemysłowych.</div>
-          </div>
-
         </div>
       </div>
 
