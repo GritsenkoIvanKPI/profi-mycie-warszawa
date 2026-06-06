@@ -899,7 +899,6 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
         <div class="relative">
           <!-- Dark atmospheric showcase — transparent PNG floats directly on background -->
           <div class="relative overflow-hidden" style="
-            min-height: 440px;
             background:
               radial-gradient(ellipse at 55% 42%, rgba(210,218,230,0.06) 0%, transparent 52%),
               radial-gradient(ellipse at 20% 75%, rgba(0,54,101,0.18) 0%, transparent 50%),
@@ -912,10 +911,10 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
             <!-- Red top bar -->
             <div class="absolute top-0 left-0 right-0 z-10" style="height: 4px; background: #E4000F;"></div>
 
-            <!-- Product image — transparent, floats on dark background -->
-            <div class="flex items-center justify-center px-10 py-16 md:px-14 md:py-20">
+            <!-- Product image — equal padding all sides, image fills panel -->
+            <div class="p-8 md:p-10">
               <img src="capalo%20image.png" alt="Caparol SIL-Fassade i CapaDIN" class="w-full block relative z-10"
-                   style="max-width: 420px; filter: drop-shadow(0 28px 52px rgba(0,0,0,0.65)) drop-shadow(0 6px 18px rgba(0,0,0,0.45));">
+                   style="filter: drop-shadow(0 28px 52px rgba(0,0,0,0.65)) drop-shadow(0 6px 18px rgba(0,0,0,0.45));">
             </div>
           </div>
 
