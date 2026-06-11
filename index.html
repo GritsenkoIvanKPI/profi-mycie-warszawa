@@ -408,6 +408,46 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
   .hero-stat-num { font-size: 1.75rem !important; }
 }
 
+/* ── PORTFOLIO V2 ── */
+.pf-tabs { display:flex; overflow-x:auto; scrollbar-width:none; border-bottom:1px solid rgba(255,255,255,0.07); }
+.pf-tabs::-webkit-scrollbar { display:none; }
+.pf-tab { flex-shrink:0; padding:14px 22px 16px; background:none; border:none; border-bottom:2px solid transparent; margin-bottom:-1px; cursor:pointer; font-family:'Exo 2',sans-serif; font-size:0.8125rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.3); white-space:nowrap; transition:color 0.2s ease, border-color 0.2s ease; }
+.pf-tab:hover { color:rgba(255,255,255,0.65); }
+.pf-tab.is-active { color:#fff; border-bottom-color:#E4000F; }
+.pf-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
+@media(max-width:768px) { .pf-grid { grid-template-columns:repeat(2,1fr); gap:4px; } }
+.pf-card { position:relative; cursor:pointer; overflow:hidden; aspect-ratio:4/3; background:#111114; display:block; }
+.pf-card img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+.pf-card:hover img { transform:scale(1.06); }
+.pf-card-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.15) 55%,transparent 100%); pointer-events:none; }
+.pf-card-info { position:absolute; bottom:0; left:0; right:0; padding:10px 12px; }
+.pf-card-cat { display:block; font-size:0.5rem; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:#E4000F; margin-bottom:2px; font-family:'Exo 2',sans-serif; }
+.pf-card-title { display:block; font-size:0.6875rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.75); font-family:'Exo 2',sans-serif; }
+.pf-card-cta { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(0.88); opacity:0; background:#E4000F; color:#fff; font-family:'Exo 2',sans-serif; font-size:0.6875rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:9px 18px; white-space:nowrap; transition:opacity 0.25s ease,transform 0.3s cubic-bezier(0.16,1,0.3,1); pointer-events:none; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
+.pf-card:hover .pf-card-cta { opacity:1; transform:translate(-50%,-50%) scale(1); }
+/* Modal */
+.pf-modal { position:fixed; inset:0; z-index:8500; background:rgba(9,9,11,0.97); display:flex; flex-direction:column; opacity:0; pointer-events:none; transition:opacity 0.3s ease; }
+.pf-modal.is-open { opacity:1; pointer-events:auto; }
+.pf-modal-topbar { display:flex; align-items:center; justify-content:space-between; padding:16px 20px 8px; flex-shrink:0; }
+.pf-modal-meta { display:flex; align-items:center; gap:10px; min-width:0; }
+.pf-modal-cat-badge { font-size:0.5625rem; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:#fff; background:#E4000F; padding:4px 10px; flex-shrink:0; font-family:'Exo 2',sans-serif; }
+.pf-modal-proj-name { font-size:0.8125rem; font-weight:600; color:rgba(255,255,255,0.45); font-family:'Exo 2',sans-serif; }
+.pf-modal-close { width:42px; height:42px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; flex-shrink:0; transition:background 0.2s,border-color 0.2s; }
+.pf-modal-close:hover { background:#E4000F; border-color:#E4000F; }
+.pf-modal-close:focus-visible { outline:2px solid #E4000F; outline-offset:3px; }
+.pf-photo-wrap { flex:1; display:flex; align-items:center; justify-content:center; padding:0 64px; overflow:hidden; position:relative; min-height:0; }
+@media(max-width:640px) { .pf-photo-wrap { padding:0 48px; } }
+.pf-photo-wrap img { max-width:100%; max-height:100%; object-fit:contain; display:block; user-select:none; -webkit-user-drag:none; transition:opacity 0.25s ease,transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+.pf-arrow { position:absolute; top:50%; transform:translateY(-50%); width:40px; height:56px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:rgba(255,255,255,0.5); transition:color 0.2s; background:transparent; border:none; }
+.pf-arrow:hover { color:#fff; }
+.pf-arrow-l { left:6px; }
+.pf-arrow-r { right:6px; }
+.pf-modal-nav { display:flex; align-items:center; justify-content:center; gap:16px; padding:12px 20px 20px; flex-shrink:0; }
+.pf-nav-btn { width:42px; height:42px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; transition:background 0.2s,border-color 0.2s; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
+.pf-nav-btn:hover { background:#E4000F; border-color:#E4000F; }
+.pf-nav-btn:focus-visible { outline:2px solid #E4000F; outline-offset:3px; }
+.pf-counter { font-size:0.8125rem; font-weight:700; letter-spacing:0.1em; color:rgba(255,255,255,0.4); min-width:52px; text-align:center; font-family:'Exo 2',sans-serif; }
+
 /* ── BEFORE/AFTER SLIDER ── */
 .ba-tabs { border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; overflow-x: auto; scrollbar-width: none; }
 .ba-tabs::-webkit-scrollbar { display: none; }
@@ -697,72 +737,54 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
       <div class="label mb-4">Nasze realizacje</div>
       <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
         <h2 class="title flex-1 min-w-0">Portfolio – efekty<br>mówią same za siebie</h2>
-        <p class="body-text max-w-xs md:pt-3">Każde zdjęcie to prawdziwy obiekt. Bez filtrów, bez retuszu.</p>
+        <p class="body-text max-w-xs md:pt-3">Wybierz kategorię i kliknij projekt, aby zobaczyć pełną galerię ze zdjęciami przed i po.</p>
       </div>
     </div>
 
-    <!-- Uniform portfolio grid – every cell is the same size -->
-    <div id="portfolio-grid" class="fade-up" style="display:grid; grid-template-columns:repeat(3,1fr); gap:5px;">
+    <!-- Category tabs (rendered by JS) -->
+    <div class="pf-tabs mb-8 fade-up d1" id="pf-tabs"></div>
 
-      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3700.JPG" data-lb-caption="Dach — po renowacji">
-        <img src="ІВАН AI/IMG_3700.JPG" alt="Dom po renowacji dachu" loading="lazy">
-        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Dach — po renowacji</span></div>
-      </div>
-      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3694.JPG" data-lb-caption="Dach — po myciu">
-        <img src="ІВАН AI/IMG_3694.JPG" alt="Dach po myciu ciśnieniowym" loading="lazy">
-        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Dach — po myciu</span></div>
-      </div>
-      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3692.JPG" data-lb-caption="Dachówka — efekt końcowy">
-        <img src="ІВАН AI/IMG_3692.JPG" alt="Czyste dachówki po renowacji" loading="lazy">
-        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Dachówka — efekt</span></div>
-      </div>
-
-      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3456.JPG" data-lb-caption="Elewacja — po renowacji">
-        <img src="ІВАН AI/IMG_3456.JPG" alt="Elewacja po renowacji" loading="lazy">
-        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Elewacja — po</span></div>
-      </div>
-      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3466.JPG" data-lb-caption="Dom — po renowacji elewacji">
-        <img src="ІВАН AI/IMG_3466.JPG" alt="Dom po renowacji elewacji" loading="lazy">
-        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Dom — po renowacji</span></div>
-      </div>
-      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3638.JPG" data-lb-caption="Kostka brukowa — po impregnacji">
-        <img src="ІВАН AI/IMG_3638.JPG" alt="Kostka po impregnacji" loading="lazy">
-        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Kostka — impregnacja</span></div>
-      </div>
-
-      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3560.JPG" data-lb-caption="Elewacja — po renowacji">
-        <img src="ІВАН AI/IMG_3560.JPG" alt="Dom po renowacji elewacji" loading="lazy">
-        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Elewacja — po</span></div>
-      </div>
-      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3633.JPG" data-lb-caption="Kostka brukowa — po myciu">
-        <img src="ІВАН AI/IMG_3633.JPG" alt="Kostka po myciu" loading="lazy">
-        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Kostka — po myciu</span></div>
-      </div>
-      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3630.JPG" data-lb-caption="Impregnacja kostki brukowej">
-        <img src="ІВАН AI/IMG_3630.JPG" alt="Kostka malowana impregnatem" loading="lazy">
-        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Impregnacja kostki</span></div>
-      </div>
-
-      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3715.JPG" data-lb-caption="Taras — układanie płytek">
-        <img src="ІВАН AI/IMG_3715.JPG" alt="Taras z płytkami" loading="lazy">
-        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Taras — płytki</span></div>
-      </div>
-      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3701.JPG" data-lb-caption="Dach — po renowacji">
-        <img src="ІВАН AI/IMG_3701.JPG" alt="Dach po renowacji" loading="lazy">
-        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Dach — po renowacji</span></div>
-      </div>
-      <div class="pitem" style="height:320px;" data-lb-src="ІВАН AI/IMG_3619.JPG" data-lb-caption="Podjazd — po myciu">
-        <img src="ІВАН AI/IMG_3619.JPG" alt="Podjazd po myciu" loading="lazy">
-        <div class="pitem-overlay"><span class="text-xs font-700 tracking-wider uppercase text-white/80">Podjazd — po myciu</span></div>
-      </div>
-
-    </div>
+    <!-- Project grid (rendered by JS) -->
+    <div class="pf-grid fade-up d2" id="pf-grid"></div>
 
     <div class="mt-10 text-center fade-up">
       <a href="#kontakt" class="btn-red px-10 py-4 text-sm">Zamów bezpłatną wycenę</a>
     </div>
   </div>
 </section>
+
+<!-- ── Portfolio project modal ── -->
+<div id="pf-modal" class="pf-modal" role="dialog" aria-modal="true" aria-label="Galeria projektu">
+  <div class="pf-modal-topbar">
+    <div class="pf-modal-meta">
+      <span id="pf-modal-cat" class="pf-modal-cat-badge"></span>
+      <span id="pf-modal-name" class="pf-modal-proj-name"></span>
+    </div>
+    <button id="pf-modal-close" class="pf-modal-close" aria-label="Zamknij">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg>
+    </button>
+  </div>
+
+  <div class="pf-photo-wrap">
+    <button class="pf-arrow pf-arrow-l" id="pf-arrow-l" aria-label="Poprzednie">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <img id="pf-modal-img" src="" alt="Zdjęcie projektu">
+    <button class="pf-arrow pf-arrow-r" id="pf-arrow-r" aria-label="Następne">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <div class="pf-modal-nav">
+    <button class="pf-nav-btn" id="pf-prev" aria-label="Poprzednie zdjęcie">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <span class="pf-counter" id="pf-counter">1 / 1</span>
+    <button class="pf-nav-btn" id="pf-next" aria-label="Następne zdjęcie">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</div>
 
 
 <!-- ════════════════════════════════════════
@@ -1517,6 +1539,173 @@ function animateCounter(el, target, suffix = '') {
 
 // Animate stats when hero is visible
 const heroStats = document.querySelectorAll('.hero-stat');
+
+// ── PORTFOLIO V2 ──
+(function () {
+  var CATS = [
+    {
+      label: 'Mycie kostki brukowej',
+      tag: 'Mycie kostki',
+      projects: [
+        { title: 'Realizacja 1', photos: ['Миття бруківки /Робота 1/IMG_4049.JPG','Миття бруківки /Робота 1/IMG_4050.JPG','Миття бруківки /Робота 1/IMG_4051.JPG','Миття бруківки /Робота 1/IMG_4052.JPG'] },
+        { title: 'Realizacja 2', photos: ['Миття бруківки /Робота 2/IMG_3801.JPG','Миття бруківки /Робота 2/IMG_4053.JPG','Миття бруківки /Робота 2/IMG_4055.JPG','Миття бруківки /Робота 2/IMG_4056.JPG'] },
+        { title: 'Realizacja 3', photos: ['Миття бруківки /Робота 3/IMG_4057.JPG','Миття бруківки /Робота 3/IMG_4058.JPG','Миття бруківки /Робота 3/IMG_4059.JPG','Миття бруківки /Робота 3/IMG_4060.JPG'] }
+      ]
+    },
+    {
+      label: 'Malowanie kostki brukowej',
+      tag: 'Malowanie kostki',
+      projects: [
+        { title: 'Realizacja 1', photos: ['Малювання бруківки /Робота 1/IMG_3799.JPG','Малювання бруківки /Робота 1/IMG_3994.JPG','Малювання бруківки /Робота 1/IMG_3995.JPG','Малювання бруківки /Робота 1/IMG_4018.JPG'] },
+        { title: 'Realizacja 2', photos: ['Малювання бруківки /Робота 2/IMG_4036.JPG','Малювання бруківки /Робота 2/IMG_4037.JPG','Малювання бруківки /Робота 2/IMG_4061.JPG','Малювання бруківки /Робота 2/IMG_4062.JPG'] },
+        { title: 'Realizacja 3', photos: ['Малювання бруківки /Робота 3/IMG_3996.JPG','Малювання бруківки /Робота 3/IMG_3997.JPG','Малювання бруківки /Робота 3/IMG_4063.JPG','Малювання бруківки /Робота 3/IMG_4064.JPG'] }
+      ]
+    },
+    {
+      label: 'Mycie dachów i ogrodzeń',
+      tag: 'Mycie dachów',
+      projects: [
+        { title: 'Realizacja 1', photos: ['Миття даху/Робота 1/IMG_3998.JPG','Миття даху/Робота 1/IMG_3999.JPG','Миття даху/Робота 1/IMG_4034.JPG','Миття даху/Робота 1/IMG_4035.JPG'] },
+        { title: 'Realizacja 2', photos: ['Миття даху/Робота 2/IMG_4067.JPG','Миття даху/Робота 2/IMG_4068.JPG','Миття даху/Робота 2/IMG_4069.JPG','Миття даху/Робота 2/IMG_4070.JPG'] },
+        { title: 'Realizacja 3', photos: ['Миття даху/Робота 3/IMG_4071.JPG','Миття даху/Робота 3/IMG_4072.JPG','Миття даху/Робота 3/IMG_4074.JPG','Миття даху/Робота 3/IMG_4076.JPG'] }
+      ]
+    },
+    {
+      label: 'Mycie i malowanie elewacji',
+      tag: 'Mycie elewacji',
+      projects: [
+        { title: 'Realizacja 1', photos: ['Миття фасаду/Робота 1 /IMG_4006.JPG','Миття фасаду/Робота 1 /IMG_4007.JPG','Миття фасаду/Робота 1 /IMG_4008.JPG','Миття фасаду/Робота 1 /IMG_4009.JPG'] },
+        { title: 'Realizacja 2', photos: ['Миття фасаду/Робота 2/IMG_4001.JPG','Миття фасаду/Робота 2/IMG_4002.JPG'] },
+        { title: 'Realizacja 3', photos: ['Миття фасаду/Робота 3/IMG_3806.JPG','Миття фасаду/Робота 3/IMG_4023.JPG'] },
+        { title: 'Realizacja 4', photos: ['Миття фасаду/Робота 4/IMG_3813.JPG','Миття фасаду/Робота 4/IMG_4041.JPG','Миття фасаду/Робота 4/IMG_4043.JPG','Миття фасаду/Робота 4/IMG_4044.JPG'] },
+        { title: 'Realizacja 5', photos: ['Миття фасаду/Робота 5/IMG_3802.JPG','Миття фасаду/Робота 5/IMG_3804.JPG','Миття фасаду/Робота 5/IMG_4046.JPG','Миття фасаду/Робота 5/IMG_4048.JPG'] }
+      ]
+    },
+    {
+      label: 'Zasypywanie piaskiem brukowej',
+      tag: 'Zasypywanie piaskiem',
+      projects: [
+        { title: 'Realizacja 1', photos: ['Засипання піском бруківки/IMG_4065.JPG','Засипання піском бруківки/IMG_4066.JPG'] }
+      ]
+    }
+  ];
+
+  var tabsEl = document.getElementById('pf-tabs');
+  var gridEl = document.getElementById('pf-grid');
+  var activeC = 0;
+
+  function renderTabs() {
+    tabsEl.innerHTML = '';
+    CATS.forEach(function(cat, i) {
+      var btn = document.createElement('button');
+      btn.className = 'pf-tab' + (i === activeC ? ' is-active' : '');
+      btn.textContent = cat.tag;
+      btn.addEventListener('click', function() {
+        if (activeC === i) return;
+        activeC = i;
+        renderTabs();
+        renderGrid();
+      });
+      tabsEl.appendChild(btn);
+    });
+  }
+
+  function renderGrid() {
+    gridEl.innerHTML = '';
+    var cat = CATS[activeC];
+    cat.projects.forEach(function(proj) {
+      var card = document.createElement('div');
+      card.className = 'pf-card';
+      card.innerHTML =
+        '<img src="' + proj.photos[0] + '" alt="' + proj.title + '" loading="lazy">' +
+        '<div class="pf-card-overlay"></div>' +
+        '<div class="pf-card-info">' +
+          '<span class="pf-card-cat">' + cat.tag + '</span>' +
+          '<span class="pf-card-title">' + proj.title + '</span>' +
+        '</div>' +
+        '<span class="pf-card-cta">Otwórz galerię</span>';
+      card.addEventListener('click', function() { openModal(cat, proj); });
+      gridEl.appendChild(card);
+    });
+  }
+
+  // ── Modal state
+  var modal    = document.getElementById('pf-modal');
+  var mImg     = document.getElementById('pf-modal-img');
+  var mCat     = document.getElementById('pf-modal-cat');
+  var mName    = document.getElementById('pf-modal-name');
+  var mCounter = document.getElementById('pf-counter');
+  var photos   = [];
+  var cur      = 0;
+
+  function go(i) {
+    cur = ((i % photos.length) + photos.length) % photos.length;
+    mCounter.textContent = (cur + 1) + ' / ' + photos.length;
+    mImg.style.opacity = '0';
+    mImg.style.transform = 'scale(0.96)';
+    var src = photos[cur];
+    setTimeout(function() {
+      mImg.onload = function() {
+        mImg.style.opacity = '1';
+        mImg.style.transform = 'scale(1)';
+      };
+      mImg.src = src;
+      if (mImg.complete && mImg.naturalWidth) {
+        mImg.style.opacity = '1';
+        mImg.style.transform = 'scale(1)';
+      }
+    }, 180);
+  }
+
+  function openModal(cat, proj) {
+    photos = proj.photos;
+    cur = 0;
+    mCat.textContent = cat.label;
+    mName.textContent = proj.title;
+    mCounter.textContent = '1 / ' + photos.length;
+    mImg.style.transition = 'none';
+    mImg.style.opacity = '0';
+    mImg.src = '';
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(function() {
+      mImg.style.transition = '';
+      mImg.onload = function() { mImg.style.opacity = '1'; };
+      mImg.src = photos[0];
+      if (mImg.complete && mImg.naturalWidth) mImg.style.opacity = '1';
+    });
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('pf-modal-close').addEventListener('click', closeModal);
+  document.getElementById('pf-arrow-l').addEventListener('click', function(e) { e.stopPropagation(); go(cur - 1); });
+  document.getElementById('pf-arrow-r').addEventListener('click', function(e) { e.stopPropagation(); go(cur + 1); });
+  document.getElementById('pf-prev').addEventListener('click', function(e) { e.stopPropagation(); go(cur - 1); });
+  document.getElementById('pf-next').addEventListener('click', function(e) { e.stopPropagation(); go(cur + 1); });
+
+  document.addEventListener('keydown', function(e) {
+    if (!modal.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') go(cur - 1);
+    if (e.key === 'ArrowRight') go(cur + 1);
+  });
+
+  var swipeX = null;
+  modal.addEventListener('touchstart', function(e) { swipeX = e.touches[0].clientX; }, { passive: true });
+  modal.addEventListener('touchend', function(e) {
+    if (swipeX === null) return;
+    var dx = e.changedTouches[0].clientX - swipeX;
+    if (Math.abs(dx) > 50) { if (dx < 0) go(cur + 1); else go(cur - 1); }
+    swipeX = null;
+  });
+
+  renderTabs();
+  renderGrid();
+})();
 
 // ── LIGHTBOX ──
 (function () {
