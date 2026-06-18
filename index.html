@@ -464,6 +464,7 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
 @media (max-width: 640px) { .ba-track { height: 270px; } }
 .ba-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; display: block; }
 .ba-img-a { clip-path: inset(0 0 0 50%); }
+.ba-track video.ba-img { opacity: 0.8; }
 .ba-divider { position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: rgba(255,255,255,0.92); transform: translateX(-50%); pointer-events: none; box-shadow: 0 0 18px rgba(0,0,0,0.8); }
 .ba-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.3); cursor: ew-resize; pointer-events: auto; }
 .ba-label { position: absolute; top: 20px; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; padding: 7px 14px; pointer-events: none; line-height: 1; font-family: 'Exo 2', sans-serif; }
@@ -799,13 +800,13 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
   <div class="absolute inset-0" style="background: radial-gradient(ellipse at 80% 50%, rgba(228,0,15,0.15) 0%, transparent 60%);"></div>
   <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=60 height=60 xmlns=http://www.w3.org/2000/svg%3E%3Cpath d=M0 0h60v60H0z fill=none stroke=white stroke-width=.5/%3E%3C/svg%3E');"></div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+  <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
     <div class="fade-up">
       <div class="label mb-3" style="color: rgba(255,255,255,0.5);">Działaj teraz</div>
       <h2 class="title-sm text-white max-w-lg">Zadzwoń – bezpłatna wycena<br>w ciągu 24 godzin</h2>
       <p class="body-text text-white/60 mt-3 max-w-md">Obsługujemy całą Warszawę i okolice. Przyjeżdżamy z własnym sprzętem. Szybki termin realizacji.</p>
     </div>
-    <div class="flex flex-col sm:flex-row items-center gap-4 flex-shrink-0 fade-up d3">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-shrink-0 fade-up d3">
       <a href="tel:+48783779725" class="btn-red px-8 py-4 text-base">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
         +48 783 779 725
