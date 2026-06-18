@@ -476,11 +476,6 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
 .ba-svc-desc { font-size: 0.9375rem; line-height: 1.72; color: #9299a8; max-width: 580px; }
 .ba-drag-hint { margin-top: 14px; font-size: 0.625rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.17); display: flex; align-items: center; gap: 8px; }
 .ba-drag-hint::before { content: ''; display: inline-block; width: 18px; height: 1px; background: rgba(255,255,255,0.15); }
-.ba-video-track { position: relative; display: flex; height: 520px; overflow: hidden; background: #0d0d10; gap: 3px; }
-@media (max-width: 640px) { .ba-video-track { height: 270px; } }
-.ba-video-half { position: relative; flex: 1; overflow: hidden; }
-.ba-video-half video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.ba-video-divider { width: 3px; background: rgba(255,255,255,0.92); flex-shrink: 0; box-shadow: 0 0 18px rgba(0,0,0,0.8); position: relative; z-index: 2; }
 </style>
 </head>
 <body>
@@ -645,27 +640,27 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
 
       <!-- Panel 0: Kostka brukowa (video) -->
       <div id="ba-p0" class="ba-panel is-active">
-        <div class="ba-video-track">
-          <div class="ba-video-half">
-            <video autoplay loop muted playsinline>
-              <source src="Відео до:після/Відео до.MP4" type="video/mp4">
-            </video>
-            <span class="ba-label ba-label-b">PRZED</span>
+        <div class="ba-track" data-ba-track>
+          <video class="ba-img ba-img-b" autoplay loop muted playsinline>
+            <source src="Відео до:після/Відео до.MP4" type="video/mp4">
+          </video>
+          <video class="ba-img ba-img-a" autoplay loop muted playsinline>
+            <source src="Відео до:після/Відео після.MP4" type="video/mp4">
+          </video>
+          <div class="ba-divider">
+            <div class="ba-handle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#09090b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/></svg>
+            </div>
           </div>
-          <div class="ba-video-divider"></div>
-          <div class="ba-video-half">
-            <video autoplay loop muted playsinline>
-              <source src="Відео до:після/Відео після.MP4" type="video/mp4">
-            </video>
-            <span class="ba-label ba-label-a">PO</span>
-          </div>
+          <span class="ba-label ba-label-b">PRZED</span>
+          <span class="ba-label ba-label-a">PO</span>
         </div>
         <div class="ba-info">
           <div>
             <span class="ba-svc-num">Usługi 01 – 02</span>
             <h3 class="ba-svc-title">Mycie i impregnacja<br>kostki brukowej</h3>
             <p class="ba-svc-desc">Usuwamy mchy, glony, olej i zabrudzenia metodą ciśnieniową. Opcjonalnie nakładamy impregnat, który odświeża kolor i odpycha brud na lata.</p>
-            <p class="ba-drag-hint">Obejrzyj wideo przed i po</p>
+            <p class="ba-drag-hint">Przesuń suwak aby porównać</p>
           </div>
           <a href="#kontakt" class="btn-red flex-shrink-0">
             Bezpłatna wycena
