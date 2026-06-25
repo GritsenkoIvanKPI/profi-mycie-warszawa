@@ -1572,7 +1572,7 @@ const heroStats = document.querySelectorAll('.hero-stat');
         { title: 'Realizacja 2', photos: ['Миття фасаду/Робота 3/IMG_4023.JPG','Миття фасаду/Робота 3/IMG_3806.JPG'] },
         { title: 'Realizacja 3', photos: ['Миття фасаду/Робота 4/IMG_4041.JPG','Миття фасаду/Робота 4/IMG_3813.JPG'] },
         { title: 'Realizacja 4', photos: ['Миття фасаду/Робота 5/IMG_3802.JPG','Миття фасаду/Робота 5/IMG_4048.JPG'] },
-        { title: 'Realizacja 5', photos: ['Нові фото/2026-06-11 20.52.28.jpg','Нові фото/2026-06-11 20.52.37.jpg'] }
+        { title: 'Realizacja 5', photos: ['Нові фото/2026-06-11 20.52.28.jpg','Нові фото/2026-06-11 20.52.37.jpg'], imgStyle: 'object-position:center 35%;transform:scale(1.35)' }
       ]
     },
     {
@@ -1637,10 +1637,11 @@ const heroStats = document.querySelectorAll('.hero-stat');
     cat.projects.forEach(function(proj) {
       var slider = document.createElement('div');
       slider.className = 'pf-slider';
+      var iS = proj.imgStyle ? ' style="' + proj.imgStyle + '"' : '';
       slider.innerHTML =
         '<div class="pf-slider-track">' +
-          '<img class="pf-img-b" src="' + proj.photos[0] + '" alt="' + proj.title + ' przed" loading="lazy">' +
-          '<img class="pf-img-a" src="' + proj.photos[1] + '" alt="' + proj.title + ' po" loading="lazy">' +
+          '<img class="pf-img-b" src="' + proj.photos[0] + '" alt="' + proj.title + ' przed" loading="lazy"' + iS + '>' +
+          '<img class="pf-img-a" src="' + proj.photos[1] + '" alt="' + proj.title + ' po" loading="lazy"' + iS + '>' +
           '<div class="ba-divider"><div class="ba-handle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#09090b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/></svg></div></div>' +
           '<span class="ba-label ba-label-b">PRZED</span>' +
           '<span class="ba-label ba-label-a">PO</span>' +
