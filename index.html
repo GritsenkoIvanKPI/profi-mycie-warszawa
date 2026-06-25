@@ -414,39 +414,19 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
 .pf-tab { flex-shrink:0; padding:14px 22px 16px; background:none; border:none; border-bottom:2px solid transparent; margin-bottom:-1px; cursor:pointer; font-family:'Exo 2',sans-serif; font-size:0.8125rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.3); white-space:nowrap; transition:color 0.2s ease, border-color 0.2s ease; }
 .pf-tab:hover { color:rgba(255,255,255,0.65); }
 .pf-tab.is-active { color:#fff; border-bottom-color:#E4000F; }
-.pf-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
-@media(max-width:768px) { .pf-grid { grid-template-columns:repeat(2,1fr); gap:4px; } }
-.pf-card { position:relative; cursor:pointer; overflow:hidden; aspect-ratio:4/3; background:#111114; display:block; }
-.pf-card img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s cubic-bezier(0.16,1,0.3,1); }
-.pf-card:hover img { transform:scale(1.06); }
-.pf-card-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.15) 55%,transparent 100%); pointer-events:none; }
-.pf-card-info { position:absolute; bottom:0; left:0; right:0; padding:10px 12px; }
-.pf-card-cat { display:block; font-size:0.5rem; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:#E4000F; margin-bottom:2px; font-family:'Exo 2',sans-serif; }
-.pf-card-title { display:block; font-size:0.6875rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.75); font-family:'Exo 2',sans-serif; }
-.pf-card-cta { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(0.88); opacity:0; background:#E4000F; color:#fff; font-family:'Exo 2',sans-serif; font-size:0.6875rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:9px 18px; white-space:nowrap; transition:opacity 0.25s ease,transform 0.3s cubic-bezier(0.16,1,0.3,1); pointer-events:none; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
-.pf-card:hover .pf-card-cta { opacity:1; transform:translate(-50%,-50%) scale(1); }
+.pf-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+@media(max-width:768px) { .pf-grid { grid-template-columns:1fr; gap:16px; } }
+.pf-slider { position:relative; overflow:hidden; background:#111114; }
+.pf-slider-track { position:relative; height:380px; overflow:hidden; cursor:ew-resize; user-select:none; -webkit-user-select:none; background:#0d0d10; }
+@media(max-width:768px) { .pf-slider-track { height:240px; } }
+.pf-slider-track img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none; display:block; }
+.pf-slider-track .pf-img-a { clip-path:inset(0 0 0 50%); }
+.pf-slider-info { padding:12px 14px; display:flex; align-items:center; justify-content:space-between; }
+.pf-slider-meta { display:flex; align-items:center; gap:8px; }
+.pf-slider-cat { font-size:0.5625rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#E4000F; font-family:'Exo 2',sans-serif; }
+.pf-slider-title { font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.65); font-family:'Exo 2',sans-serif; }
+.pf-slider-hint { font-size:0.5625rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.15); font-family:'Exo 2',sans-serif; }
 /* Modal */
-.pf-modal { position:fixed; inset:0; z-index:8500; background:rgba(9,9,11,0.97); display:flex; flex-direction:column; opacity:0; pointer-events:none; transition:opacity 0.3s ease; }
-.pf-modal.is-open { opacity:1; pointer-events:auto; }
-.pf-modal-topbar { display:flex; align-items:center; justify-content:space-between; padding:16px 20px 8px; flex-shrink:0; }
-.pf-modal-meta { display:flex; align-items:center; gap:10px; min-width:0; }
-.pf-modal-cat-badge { font-size:0.5625rem; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:#fff; background:#E4000F; padding:4px 10px; flex-shrink:0; font-family:'Exo 2',sans-serif; }
-.pf-modal-proj-name { font-size:0.8125rem; font-weight:600; color:rgba(255,255,255,0.45); font-family:'Exo 2',sans-serif; }
-.pf-modal-close { width:42px; height:42px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; flex-shrink:0; transition:background 0.2s,border-color 0.2s; }
-.pf-modal-close:hover { background:#E4000F; border-color:#E4000F; }
-.pf-modal-close:focus-visible { outline:2px solid #E4000F; outline-offset:3px; }
-.pf-photo-wrap { flex:1; display:flex; align-items:center; justify-content:center; padding:0 64px; overflow:hidden; position:relative; min-height:0; }
-@media(max-width:640px) { .pf-photo-wrap { padding:0 48px; } }
-.pf-photo-wrap img { max-width:100%; max-height:100%; object-fit:contain; display:block; user-select:none; -webkit-user-drag:none; transition:opacity 0.25s ease,transform 0.3s cubic-bezier(0.16,1,0.3,1); }
-.pf-arrow { position:absolute; top:50%; transform:translateY(-50%); width:40px; height:56px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:rgba(255,255,255,0.5); transition:color 0.2s; background:transparent; border:none; }
-.pf-arrow:hover { color:#fff; }
-.pf-arrow-l { left:6px; }
-.pf-arrow-r { right:6px; }
-.pf-modal-nav { display:flex; align-items:center; justify-content:center; gap:16px; padding:12px 20px 20px; flex-shrink:0; }
-.pf-nav-btn { width:42px; height:42px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; transition:background 0.2s,border-color 0.2s; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
-.pf-nav-btn:hover { background:#E4000F; border-color:#E4000F; }
-.pf-nav-btn:focus-visible { outline:2px solid #E4000F; outline-offset:3px; }
-.pf-counter { font-size:0.8125rem; font-weight:700; letter-spacing:0.1em; color:rgba(255,255,255,0.4); min-width:52px; text-align:center; font-family:'Exo 2',sans-serif; }
 
 /* ── BEFORE/AFTER SLIDER ── */
 .ba-tabs { border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; overflow-x: auto; scrollbar-width: none; }
@@ -742,7 +722,7 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
       <div class="label mb-4">Nasze realizacje</div>
       <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
         <h2 class="title flex-1 min-w-0">Portfolio – efekty<br>mówią same za siebie</h2>
-        <p class="body-text max-w-xs md:pt-3">Wybierz kategorię i kliknij projekt, aby zobaczyć pełną galerię ze zdjęciami przed i po.</p>
+        <p class="body-text max-w-xs md:pt-3">Wybierz kategorię i przesuń suwak, aby porównać efekty przed i po.</p>
       </div>
     </div>
 
@@ -758,38 +738,6 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
   </div>
 </section>
 
-<!-- ── Portfolio project modal ── -->
-<div id="pf-modal" class="pf-modal" role="dialog" aria-modal="true" aria-label="Galeria projektu">
-  <div class="pf-modal-topbar">
-    <div class="pf-modal-meta">
-      <span id="pf-modal-cat" class="pf-modal-cat-badge"></span>
-      <span id="pf-modal-name" class="pf-modal-proj-name"></span>
-    </div>
-    <button id="pf-modal-close" class="pf-modal-close" aria-label="Zamknij">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg>
-    </button>
-  </div>
-
-  <div class="pf-photo-wrap">
-    <button class="pf-arrow pf-arrow-l" id="pf-arrow-l" aria-label="Poprzednie">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <img id="pf-modal-img" src="" alt="Zdjęcie projektu">
-    <button class="pf-arrow pf-arrow-r" id="pf-arrow-r" aria-label="Następne">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-
-  <div class="pf-modal-nav">
-    <button class="pf-nav-btn" id="pf-prev" aria-label="Poprzednie zdjęcie">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <span class="pf-counter" id="pf-counter">1 / 1</span>
-    <button class="pf-nav-btn" id="pf-next" aria-label="Następne zdjęcie">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-</div>
 
 
 <!-- ════════════════════════════════════════
@@ -1640,6 +1588,33 @@ const heroStats = document.querySelectorAll('.hero-stat');
   var gridEl = document.getElementById('pf-grid');
   var activeC = 0;
 
+  function initPfSlider(track) {
+    var afterImg = track.querySelector('.pf-img-a');
+    var divider  = track.querySelector('.ba-divider');
+    var dragging = false;
+
+    function setPos(p) {
+      p = Math.max(3, Math.min(97, p));
+      afterImg.style.clipPath = 'inset(0 0 0 ' + p + '%)';
+      divider.style.left = p + '%';
+    }
+
+    function getPos(e) {
+      var rect = track.getBoundingClientRect();
+      var x = e.touches ? e.touches[0].clientX : e.clientX;
+      return ((x - rect.left) / rect.width) * 100;
+    }
+
+    setPos(50);
+
+    track.addEventListener('mousedown', function(e) { dragging = true; setPos(getPos(e)); e.preventDefault(); });
+    document.addEventListener('mousemove', function(e) { if (dragging) setPos(getPos(e)); });
+    document.addEventListener('mouseup', function() { dragging = false; });
+    track.addEventListener('touchstart', function(e) { dragging = true; setPos(getPos(e)); }, { passive: true });
+    document.addEventListener('touchmove', function(e) { if (dragging) { setPos(getPos(e)); e.preventDefault(); } }, { passive: false });
+    document.addEventListener('touchend', function() { dragging = false; });
+  }
+
   function renderTabs() {
     tabsEl.innerHTML = '';
     CATS.forEach(function(cat, i) {
@@ -1660,94 +1635,27 @@ const heroStats = document.querySelectorAll('.hero-stat');
     gridEl.innerHTML = '';
     var cat = CATS[activeC];
     cat.projects.forEach(function(proj) {
-      var card = document.createElement('div');
-      card.className = 'pf-card';
-      card.innerHTML =
-        '<img src="' + proj.photos[0] + '" alt="' + proj.title + '" loading="lazy">' +
-        '<div class="pf-card-overlay"></div>' +
-        '<div class="pf-card-info">' +
-          '<span class="pf-card-cat">' + cat.tag + '</span>' +
-          '<span class="pf-card-title">' + proj.title + '</span>' +
+      var slider = document.createElement('div');
+      slider.className = 'pf-slider';
+      slider.innerHTML =
+        '<div class="pf-slider-track">' +
+          '<img class="pf-img-b" src="' + proj.photos[0] + '" alt="' + proj.title + ' przed" loading="lazy">' +
+          '<img class="pf-img-a" src="' + proj.photos[1] + '" alt="' + proj.title + ' po" loading="lazy">' +
+          '<div class="ba-divider"><div class="ba-handle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#09090b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/></svg></div></div>' +
+          '<span class="ba-label ba-label-b">PRZED</span>' +
+          '<span class="ba-label ba-label-a">PO</span>' +
         '</div>' +
-        '<span class="pf-card-cta">Otwórz galerię</span>';
-      card.addEventListener('click', function() { openModal(cat, proj); });
-      gridEl.appendChild(card);
+        '<div class="pf-slider-info">' +
+          '<div class="pf-slider-meta">' +
+            '<span class="pf-slider-cat">' + cat.tag + '</span>' +
+            '<span class="pf-slider-title">' + proj.title + '</span>' +
+          '</div>' +
+          '<span class="pf-slider-hint">Przesuń suwak</span>' +
+        '</div>';
+      gridEl.appendChild(slider);
+      initPfSlider(slider.querySelector('.pf-slider-track'));
     });
   }
-
-  // ── Modal state
-  var modal    = document.getElementById('pf-modal');
-  var mImg     = document.getElementById('pf-modal-img');
-  var mCat     = document.getElementById('pf-modal-cat');
-  var mName    = document.getElementById('pf-modal-name');
-  var mCounter = document.getElementById('pf-counter');
-  var photos   = [];
-  var cur      = 0;
-
-  function go(i) {
-    cur = ((i % photos.length) + photos.length) % photos.length;
-    mCounter.textContent = (cur + 1) + ' / ' + photos.length;
-    mImg.style.opacity = '0';
-    mImg.style.transform = 'scale(0.96)';
-    var src = photos[cur];
-    setTimeout(function() {
-      mImg.onload = function() {
-        mImg.style.opacity = '1';
-        mImg.style.transform = 'scale(1)';
-      };
-      mImg.src = src;
-      if (mImg.complete && mImg.naturalWidth) {
-        mImg.style.opacity = '1';
-        mImg.style.transform = 'scale(1)';
-      }
-    }, 180);
-  }
-
-  function openModal(cat, proj) {
-    photos = proj.photos;
-    cur = 0;
-    mCat.textContent = cat.label;
-    mName.textContent = proj.title;
-    mCounter.textContent = '1 / ' + photos.length;
-    mImg.style.transition = 'none';
-    mImg.style.opacity = '0';
-    mImg.src = '';
-    modal.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-    requestAnimationFrame(function() {
-      mImg.style.transition = '';
-      mImg.onload = function() { mImg.style.opacity = '1'; };
-      mImg.src = photos[0];
-      if (mImg.complete && mImg.naturalWidth) mImg.style.opacity = '1';
-    });
-  }
-
-  function closeModal() {
-    modal.classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
-
-  document.getElementById('pf-modal-close').addEventListener('click', closeModal);
-  document.getElementById('pf-arrow-l').addEventListener('click', function(e) { e.stopPropagation(); go(cur - 1); });
-  document.getElementById('pf-arrow-r').addEventListener('click', function(e) { e.stopPropagation(); go(cur + 1); });
-  document.getElementById('pf-prev').addEventListener('click', function(e) { e.stopPropagation(); go(cur - 1); });
-  document.getElementById('pf-next').addEventListener('click', function(e) { e.stopPropagation(); go(cur + 1); });
-
-  document.addEventListener('keydown', function(e) {
-    if (!modal.classList.contains('is-open')) return;
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'ArrowLeft') go(cur - 1);
-    if (e.key === 'ArrowRight') go(cur + 1);
-  });
-
-  var swipeX = null;
-  modal.addEventListener('touchstart', function(e) { swipeX = e.touches[0].clientX; }, { passive: true });
-  modal.addEventListener('touchend', function(e) {
-    if (swipeX === null) return;
-    var dx = e.changedTouches[0].clientX - swipeX;
-    if (Math.abs(dx) > 50) { if (dx < 0) go(cur + 1); else go(cur - 1); }
-    swipeX = null;
-  });
 
   renderTabs();
   renderGrid();
