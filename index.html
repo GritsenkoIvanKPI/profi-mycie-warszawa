@@ -1349,23 +1349,26 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
       <!-- Right – form -->
       <div class="fade-up d2">
         <form id="contactForm" onsubmit="handleSubmit(event)" class="space-y-4">
+          <input type="hidden" name="access_key" value="PASTE_WEB3FORMS_KEY_HERE">
+          <input type="hidden" name="subject" value="Nowe zapytanie o wycenę – PROFI">
+          <input type="hidden" name="from_name" value="Formularz PROFI">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-2">Imię i nazwisko *</label>
-              <input type="text" class="finput" placeholder="Jan Kowalski" required>
+              <input type="text" name="name" class="finput" placeholder="Jan Kowalski" required>
             </div>
             <div>
               <label class="block text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-2">Telefon *</label>
-              <input type="tel" class="finput" placeholder="+48 783 779 725" required>
+              <input type="tel" name="phone" class="finput" placeholder="+48 783 779 725" required>
             </div>
           </div>
           <div>
             <label class="block text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-2">E-mail</label>
-            <input type="email" class="finput" placeholder="jan@example.pl">
+            <input type="email" name="email" class="finput" placeholder="jan@example.pl">
           </div>
           <div>
             <label class="block text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-2">Interesująca usługa *</label>
-            <select class="finput" required>
+            <select name="service" class="finput" required>
               <option value="" disabled selected>Wybierz usługę...</option>
               <option>Mycie kostki brukowej</option>
               <option>Malowanie kostki impregnatem</option>
@@ -1378,10 +1381,10 @@ header.scrolled { background: rgba(9,9,11,0.97) !important; backdrop-filter: blu
           </div>
           <div>
             <label class="block text-xs font-700 tracking-wider uppercase text-[#636c7a] mb-2">Wiadomość</label>
-            <textarea class="finput" rows="4" placeholder="Opisz krótko zakres prac, lokalizację i przybliżone wymiary..."></textarea>
+            <textarea name="message" class="finput" rows="4" placeholder="Opisz krótko zakres prac, lokalizację i przybliżone wymiary..."></textarea>
           </div>
           <div class="pt-2">
-            <button type="submit" class="btn-red w-full py-4 text-base justify-center">
+            <button type="submit" id="submitBtn" class="btn-red w-full py-4 text-base justify-center">
               Wyślij zapytanie – bezpłatna wycena
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
@@ -1527,10 +1530,35 @@ setTimeout(() => {
 }, 100);
 
 // ── Form submit
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('formSuccess').classList.remove('hidden');
+  const form = document.getElementById('contactForm');
+  const btn = document.getElementById('submitBtn');
+  const data = Object.fromEntries(new FormData(form));
+
+  btn.disabled = true;
+  btn.style.opacity = '0.6';
+  btn.textContent = 'Wysyłanie...';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const json = await res.json();
+    if (json.success) {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').classList.remove('hidden');
+    } else {
+      throw new Error(json.message || 'Błąd wysyłania');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.style.opacity = '';
+    btn.innerHTML = 'Wyślij zapytanie – bezpłatna wycena <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    alert('Nie udało się wysłać wiadomości. Spróbuj ponownie lub zadzwoń do nas.');
+  }
 }
 
 // ── Counter animation
